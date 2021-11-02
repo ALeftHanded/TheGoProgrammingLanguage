@@ -4,8 +4,6 @@
 
 2. Algorithm implement in golang
 
-3. Exercise answer
-
 #### Book link
 
 [English](http://www.gopl.io/)
