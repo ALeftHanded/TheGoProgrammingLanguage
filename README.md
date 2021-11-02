@@ -1,7 +1,13 @@
 ## The Go Programming Language
-Study Notes && Demo code && Exercise anwser
+#### Content
+1. Study Notes
 
-[Book link English](http://www.gopl.io/)
+2. Algorithm implement in golang
 
-[Book link Chinese](https://docs.hacknode.org/gopl-zh/)
+3. Exercise answer
 
+#### Book link
+
+[English](http://www.gopl.io/)
+
+[Chinese](https://book.itsfun.top/gopl-zh/)
