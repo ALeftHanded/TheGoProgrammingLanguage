@@ -9,15 +9,22 @@ func NewSingly() *Node {
 	return &Node{}
 }
 
-func ArrayToSinglyLinkedList(array []int) *Node {
-	head := NewSingly()
-	if len(array) == 0 {
-		return head
+func ArrayToSinglyLinkedList(arr []int) *Node {
+	var head *Node
+	if len(arr) == 0 {
+		return nil
 	} else {
-		for _, val := range array{
-
+		// arr reversed
+		for l, r := 0, len(arr)-1; l<r; l, r = l+1, r-1{
+			arr[l], arr[r] = arr[r], arr[l]
+		}
+		for _, val := range arr {
+			node := &Node{
+				Val: val,
+				Next: head,
+			}
+			head = node
 		}
 	}
-
 	return head
 }
