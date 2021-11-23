@@ -64,3 +64,39 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 	}
 }
 
+func TestSinglyLinkedListToArray(t *testing.T) {
+	type args struct {
+		head *Node
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		// TODO: Add test cases.
+		{
+			name: "normal SinglyLinkedList test",
+			args: args{
+				&Node{
+					Val: 1,
+					Next: &Node{
+						Val: 2,
+					Next: &Node{Val: 3}},
+				},
+			},
+			want: []int{1, 2, 3},
+		},
+		{
+			name: "nil SinglyLinkedList test",
+			args: args{nil},
+			want: []int{},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := SinglyLinkedListToArray(tt.args.head); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("SinglyLinkedListToArray() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
