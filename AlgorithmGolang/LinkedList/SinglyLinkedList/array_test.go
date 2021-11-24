@@ -5,25 +5,6 @@ import (
 	"testing"
 )
 
-func TestNewSingly(t *testing.T) {
-	tests := []struct {
-		name string
-		want *Node
-	}{
-		// TODO: Add test cases.
-		{
-			name: "just a test",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := NewSingly(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewSingly() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
 func TestArrayToSinglyLinkedList(t *testing.T) {
 	type args struct {
 		arr []int
