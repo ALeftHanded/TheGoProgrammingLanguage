@@ -64,10 +64,36 @@ func (sll *SinglyLinkedList) DelAtEnd() error {
 		return fmt.Errorf("SinglyLinkedList is empty, cannot delete")
 	}
 	head := sll.Head
-	for head.Next != nil {
+	for head.Next.Next != nil {
 		head = head.Next
 	}
-	head = nil
+	head.Next = nil
 	sll.length--
 	return nil
+}
+
+// PopAtBegin remove SinglyLinkedList node at the beginning of the list and return its value. Returns -1 if the list is empty.
+func (sll *SinglyLinkedList) PopAtBegin() interface{} {
+	if sll.length == 0 {
+		return -1
+	}
+	res := sll.Head.Val
+	sll.Head = sll.Head.Next
+	sll.length--
+	return res
+}
+
+// PopAtEnd remove SinglyLinkedList node at the end of the list and return its value. Returns -1 if the list is empty.
+func (sll *SinglyLinkedList) PopAtEnd() interface{} {
+	if sll.length == 0 {
+		return -1
+	}
+	head := sll.Head
+	for head.Next.Next != nil {
+		head = head.Next
+	}
+	res := head.Val
+	head.Next = nil
+	sll.length--
+	return res
 }
