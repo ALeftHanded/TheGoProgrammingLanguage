@@ -2,7 +2,7 @@ package SinglyLinkedList
 
 // Node for SinglyLinkedList.
 type Node struct {
-	Val  int
+	Val  interface{}
 	Next *Node
 }
 

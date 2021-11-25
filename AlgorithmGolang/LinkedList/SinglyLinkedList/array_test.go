@@ -7,7 +7,7 @@ import (
 
 func TestArrayToSinglyLinkedList(t *testing.T) {
 	type args struct {
-		arr []int
+		arr []interface{}
 	}
 	tests := []struct {
 		name string
@@ -18,14 +18,14 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 		{
 			name: "null arr test",
 			args: args{
-				[]int{},
+				[]interface{}{},
 			},
 			want: nil,
 		},
 		{
 			name: "normal arr test",
 			args: args{
-				[]int{1,2,3},
+				[]interface{}{1,2,3},
 			},
 			want: &Node{
 				Val: 1,
@@ -52,7 +52,7 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want []int
+		want []interface{}
 	}{
 		// TODO: Add test cases.
 		{
@@ -65,12 +65,12 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 					Next: &Node{Val: 3}},
 				},
 			},
-			want: []int{1, 2, 3},
+			want: []interface{}{1, 2, 3},
 		},
 		{
 			name: "nil SinglyLinkedList test",
 			args: args{nil},
-			want: []int{},
+			want: []interface{}{},
 		},
 	}
 	for _, tt := range tests {

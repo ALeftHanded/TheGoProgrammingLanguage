@@ -1,17 +1,13 @@
 package SinglyLinkedList
 
-func ArrayToSinglyLinkedList(arr []int) *Node {
+func ArrayToSinglyLinkedList(arr []interface{}) *Node {
 	var head *Node
 	if len(arr) == 0 {
 		return nil
 	} else {
-		// arr reversed
-		for l, r := 0, len(arr)-1; l < r; l, r = l+1, r-1 {
-			arr[l], arr[r] = arr[r], arr[l]
-		}
-		for _, val := range arr {
+		for i := len(arr)-1; i >= 0; i-- {
 			node := &Node{
-				Val:  val,
+				Val:  arr[i],
 				Next: head,
 			}
 			head = node
@@ -20,8 +16,8 @@ func ArrayToSinglyLinkedList(arr []int) *Node {
 	return head
 }
 
-func SinglyLinkedListToArray(head *Node) []int {
-	arr := []int{}
+func SinglyLinkedListToArray(head *Node) []interface{} {
+	arr := []interface{}{}
 	if head == nil {
 		return arr
 	} else {
