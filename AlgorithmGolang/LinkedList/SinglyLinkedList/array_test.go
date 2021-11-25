@@ -25,12 +25,12 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 		{
 			name: "normal arr test",
 			args: args{
-				[]interface{}{1,2,3},
+				[]interface{}{1, 2, 3},
 			},
 			want: &Node{
 				Val: 1,
 				Next: &Node{
-					Val: 2,
+					Val:  2,
 					Next: &Node{Val: 3},
 				},
 			},
@@ -61,8 +61,8 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 				&Node{
 					Val: 1,
 					Next: &Node{
-						Val: 2,
-					Next: &Node{Val: 3}},
+						Val:  2,
+						Next: &Node{Val: 3}},
 				},
 			},
 			want: []interface{}{1, 2, 3},

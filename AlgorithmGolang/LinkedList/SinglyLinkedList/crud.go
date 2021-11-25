@@ -50,7 +50,7 @@ func (sll *SinglyLinkedList) Display() {
 
 // DelAtBegin remove SinglyLinkedList node at the beginning of the list. Returns error if the list is empty.
 func (sll *SinglyLinkedList) DelAtBegin() error {
-	if sll.length == 0{
+	if sll.length == 0 {
 		return fmt.Errorf("SinglyLinkedList is empty, cannot delete")
 	}
 	sll.Head = sll.Head.Next
@@ -60,7 +60,7 @@ func (sll *SinglyLinkedList) DelAtBegin() error {
 
 // DelAtEnd remove SinglyLinkedList node at the end of the list. Returns error if the list is empty.
 func (sll *SinglyLinkedList) DelAtEnd() error {
-	if sll.length == 0{
+	if sll.length == 0 {
 		return fmt.Errorf("SinglyLinkedList is empty, cannot delete")
 	}
 	head := sll.Head

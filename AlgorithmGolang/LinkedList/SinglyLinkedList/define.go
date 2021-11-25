@@ -9,5 +9,5 @@ type Node struct {
 // SinglyLinkedList structure with length of the list and its head
 type SinglyLinkedList struct {
 	length int
-	Head *Node
+	Head   *Node
 }
