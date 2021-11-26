@@ -12,26 +12,36 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *Node
+		want *SinglyLinkedList
 	}{
 		// TODO: Add test cases.
 		{
-			name: "null arr test",
+			name: "nil arr test",
+			args: args{
+				nil,
+			},
+			want: nil,
+		},
+		{
+			name: "empty arr test",
 			args: args{
 				[]interface{}{},
 			},
-			want: nil,
+			want: &SinglyLinkedList{},
 		},
 		{
 			name: "normal arr test",
 			args: args{
 				[]interface{}{1, 2, 3},
 			},
-			want: &Node{
-				Val: 1,
-				Next: &Node{
-					Val:  2,
-					Next: &Node{Val: 3},
+			want: &SinglyLinkedList{
+				length: 3,
+				Head: &Node{
+					Val: 1,
+					Next: &Node{
+						Val: 2,
+						Next: &Node{Val: 3},
+					},
 				},
 			},
 		},
@@ -47,7 +57,7 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 
 func TestSinglyLinkedListToArray(t *testing.T) {
 	type args struct {
-		head *Node
+		sll *SinglyLinkedList
 	}
 	tests := []struct {
 		name string
@@ -58,11 +68,13 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 		{
 			name: "normal SinglyLinkedList test",
 			args: args{
-				&Node{
-					Val: 1,
-					Next: &Node{
-						Val:  2,
-						Next: &Node{Val: 3}},
+				sll: &SinglyLinkedList{
+					length: 3, Head: &Node{
+						Val: 1,
+						Next: &Node{
+							Val:  2,
+							Next: &Node{Val: 3}},
+					},
 				},
 			},
 			want: []interface{}{1, 2, 3},
@@ -70,12 +82,17 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 		{
 			name: "nil SinglyLinkedList test",
 			args: args{nil},
+			want: nil,
+		},
+		{
+			name: "empty SinglyLinkedList test",
+			args: args{sll: &SinglyLinkedList{}},
 			want: []interface{}{},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := SinglyLinkedListToArray(tt.args.head); !reflect.DeepEqual(got, tt.want) {
+			if got := SinglyLinkedListToArray(tt.args.sll); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("SinglyLinkedListToArray() = %v, want %v", got, tt.want)
 			}
 		})
