@@ -66,7 +66,7 @@ func TestSinglyLinkedList_AddAtBegin(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			sll := &SinglyLinkedList{
-				length: tt.fields.length,
+				Length: tt.fields.length,
 				Head:   tt.fields.Head,
 			}
 			sll.Display()
@@ -118,7 +118,7 @@ func TestSinglyLinkedList_AddAtEnd(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			sll := &SinglyLinkedList{
-				length: tt.fields.length,
+				Length: tt.fields.length,
 				Head:   tt.fields.Head,
 			}
 			sll.Display()
@@ -171,7 +171,7 @@ func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			sll := &SinglyLinkedList{
-				length: tt.fields.length,
+				Length: tt.fields.length,
 				Head:   tt.fields.Head,
 			}
 
@@ -227,7 +227,7 @@ func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			sll := &SinglyLinkedList{
-				length: tt.fields.length,
+				Length: tt.fields.length,
 				Head:   tt.fields.Head,
 			}
 			if err := sll.DelAtEnd(); (err != nil) != tt.wantErr {
@@ -279,7 +279,7 @@ func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			sll := &SinglyLinkedList{
-				length: tt.fields.length,
+				Length: tt.fields.length,
 				Head:   tt.fields.Head,
 			}
 			if got := sll.PopAtBegin(); !reflect.DeepEqual(got, tt.want) {
@@ -331,7 +331,7 @@ func TestSinglyLinkedList_PopAtEnd(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			sll := &SinglyLinkedList{
-				length: tt.fields.length,
+				Length: tt.fields.length,
 				Head:   tt.fields.Head,
 			}
 			if got := sll.PopAtEnd(); !reflect.DeepEqual(got, tt.want) {

@@ -9,9 +9,14 @@ func NewSinglyLinkedList() *SinglyLinkedList {
 	return &SinglyLinkedList{}
 }
 
+// NewListNode init ListNode
+func NewListNode() *ListNode {
+	return &ListNode{}
+}
+
 // AddAtBegin add new SinglyLinkedList node at the beginning of the list
 func (sll *SinglyLinkedList) AddAtBegin(val interface{}) {
-	sll.length++
+	sll.Length++
 	node := &ListNode{Val: val}
 	node.Next = sll.Head
 	sll.Head = node
@@ -20,7 +25,7 @@ func (sll *SinglyLinkedList) AddAtBegin(val interface{}) {
 // AddAtEnd add new SinglyLinkedList node at the end of the list
 // todo Need rewrite this func.
 func (sll *SinglyLinkedList) AddAtEnd(val interface{}) {
-	sll.length++
+	sll.Length++
 	node := &ListNode{Val: val}
 	// Head is nil
 	if sll.Head == nil {
@@ -39,7 +44,7 @@ func (sll *SinglyLinkedList) AddAtEnd(val interface{}) {
 
 // Count return the length of the SinglyLinkedList
 func (sll *SinglyLinkedList) Count() int {
-	return sll.length
+	return sll.Length
 }
 
 // Display prints out the elements of the SinglyLinkedList.
@@ -62,21 +67,21 @@ func (sll *SinglyLinkedList) Display() {
 
 // DelAtBegin remove SinglyLinkedList node at the beginning of the list. Returns error if the list is empty.
 func (sll *SinglyLinkedList) DelAtBegin() error {
-	if sll.length == 0 {
+	if sll.Length == 0 {
 		return fmt.Errorf("SinglyLinkedList is empty, cannot delete")
 	}
 	sll.Head = sll.Head.Next
-	sll.length--
+	sll.Length--
 	return nil
 }
 
 // DelAtEnd remove SinglyLinkedList node at the end of the list. Returns error if the list is empty.
 // todo Need rewrite this func.
 func (sll *SinglyLinkedList) DelAtEnd() error {
-	if sll.length == 0 {
+	if sll.Length == 0 {
 		return fmt.Errorf("SinglyLinkedList is empty, cannot delete")
 	}
-	sll.length--
+	sll.Length--
 	// single node delete
 	if sll.Head.Next == nil {
 		sll.Head = nil
@@ -93,21 +98,21 @@ func (sll *SinglyLinkedList) DelAtEnd() error {
 
 // PopAtBegin remove SinglyLinkedList node at the beginning of the list and return its value. Returns -1 if the list is empty.
 func (sll *SinglyLinkedList) PopAtBegin() interface{} {
-	if sll.length == 0 {
+	if sll.Length == 0 {
 		return -1
 	}
 	res := sll.Head.Val
 	sll.Head = sll.Head.Next
-	sll.length--
+	sll.Length--
 	return res
 }
 
 // PopAtEnd remove SinglyLinkedList node at the end of the list and return its value. Returns -1 if the list is empty.
 func (sll *SinglyLinkedList) PopAtEnd() interface{} {
-	if sll.length == 0 {
+	if sll.Length == 0 {
 		return -1
 	}
-	sll.length--
+	sll.Length--
 	if sll.Head.Next == nil {
 		res := sll.Head.Val
 		sll.Head = nil

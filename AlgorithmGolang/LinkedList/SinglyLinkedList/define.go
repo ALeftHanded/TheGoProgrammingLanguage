@@ -8,6 +8,6 @@ type ListNode struct {
 
 // SinglyLinkedList structure with length of the list and its head
 type SinglyLinkedList struct {
-	length int
+	Length int
 	Head   *ListNode
 }

@@ -7,8 +7,8 @@ func ReverseSingleLinkedList(sll *SinglyLinkedList) *SinglyLinkedList {
 	}
 	head := ReverseList(sll.Head)
 	return &SinglyLinkedList{
-		length: sll.length,
-		Head: head,
+		Length: sll.Length,
+		Head:   head,
 	}
 }
 
