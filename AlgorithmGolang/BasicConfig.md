@@ -2,5 +2,5 @@
 
 Algorithm implement in golang
 
-go version => `1.15.15`
+go version => `1.16.9`
 

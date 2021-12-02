@@ -12,7 +12,7 @@ func NewSinglyLinkedList() *SinglyLinkedList {
 // AddAtBegin add new SinglyLinkedList node at the beginning of the list
 func (sll *SinglyLinkedList) AddAtBegin(val interface{}) {
 	sll.length++
-	node := &Node{Val: val}
+	node := &ListNode{Val: val}
 	node.Next = sll.Head
 	sll.Head = node
 }
@@ -21,7 +21,7 @@ func (sll *SinglyLinkedList) AddAtBegin(val interface{}) {
 // todo Need rewrite this func.
 func (sll *SinglyLinkedList) AddAtEnd(val interface{}) {
 	sll.length++
-	node := &Node{Val: val}
+	node := &ListNode{Val: val}
 	// Head is nil
 	if sll.Head == nil {
 		sll.Head = node

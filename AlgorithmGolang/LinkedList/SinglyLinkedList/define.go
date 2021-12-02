@@ -1,13 +1,13 @@
 package SinglyLinkedList
 
-// Node for SinglyLinkedList.
-type Node struct {
+// ListNode for SinglyLinkedList.
+type ListNode struct {
 	Val  interface{}
-	Next *Node
+	Next *ListNode
 }
 
 // SinglyLinkedList structure with length of the list and its head
 type SinglyLinkedList struct {
 	length int
-	Head   *Node
+	Head   *ListNode
 }

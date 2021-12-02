@@ -36,11 +36,11 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 			},
 			want: &SinglyLinkedList{
 				length: 3,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val: 2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
@@ -69,11 +69,11 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 			name: "normal SinglyLinkedList test",
 			args: args{
 				sll: &SinglyLinkedList{
-					length: 3, Head: &Node{
+					length: 3, Head: &ListNode{
 						Val: 1,
-						Next: &Node{
+						Next: &ListNode{
 							Val:  2,
-							Next: &Node{Val: 3}},
+							Next: &ListNode{Val: 3}},
 					},
 				},
 			},

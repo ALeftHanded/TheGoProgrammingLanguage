@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestReverseList(t *testing.T) {
+func TestReverseSingleLinkedList(t *testing.T) {
 	type args struct {
 		sll *SinglyLinkedList
 	}
@@ -22,11 +22,32 @@ func TestReverseList(t *testing.T) {
 			},
 			want: ArrayToSinglyLinkedList([]interface{}{0,9,8,7,6,5,4,3,2,1}),
 		},
+		{
+			name: "nil reverse test",
+			args: args{
+				sll: nil,
+			},
+			want: nil,
+		},
+		{
+			name: "empty reverse test",
+			args: args{
+				sll: NewSinglyLinkedList(),
+			},
+			want: NewSinglyLinkedList(),
+		},
+		{
+			name: "single node SinglyLinkedList reverse test",
+			args: args{
+				sll: ArrayToSinglyLinkedList([]interface{}{0}),
+			},
+			want: ArrayToSinglyLinkedList([]interface{}{0}),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := ReverseList(tt.args.sll); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ReverseList() = %v, want %v", got, tt.want)
+			if got := ReverseSingleLinkedList(tt.args.sll); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("ReverseSingleLinkedList() = %v, want %v", got, tt.want)
 			}
 		})
 	}

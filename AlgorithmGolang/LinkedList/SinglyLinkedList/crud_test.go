@@ -28,7 +28,7 @@ func TestNewSinglyLinkedList(t *testing.T) {
 func TestSinglyLinkedList_AddAtBegin(t *testing.T) {
 	type fields struct {
 		length int
-		Head   *Node
+		Head   *ListNode
 	}
 	type args struct {
 		val interface{}
@@ -50,11 +50,11 @@ func TestSinglyLinkedList_AddAtBegin(t *testing.T) {
 			name: "normal list first add",
 			fields: fields{
 				length: 3,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val: 2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
@@ -80,7 +80,7 @@ func TestSinglyLinkedList_AddAtBegin(t *testing.T) {
 func TestSinglyLinkedList_AddAtEnd(t *testing.T) {
 	type fields struct {
 		length int
-		Head   *Node
+		Head   *ListNode
 	}
 	type args struct {
 		val interface{}
@@ -102,11 +102,11 @@ func TestSinglyLinkedList_AddAtEnd(t *testing.T) {
 			name: "normal list add at end",
 			fields: fields{
 				length: 3,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val:  2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
@@ -132,7 +132,7 @@ func TestSinglyLinkedList_AddAtEnd(t *testing.T) {
 func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 	type fields struct {
 		length int
-		Head   *Node
+		Head   *ListNode
 	}
 	tests := []struct {
 		name    string
@@ -149,7 +149,7 @@ func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 			name: "single node SinglyLinkList del",
 			fields: fields{
 				length: 1,
-				Head: &Node{Val: 1},
+				Head: &ListNode{Val: 1},
 			},
 			wantErr: false,
 		},
@@ -157,11 +157,11 @@ func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 			name: "normal SinglyLinkList del",
 			fields: fields{
 				length: 1,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val: 2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
@@ -188,7 +188,7 @@ func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 	type fields struct {
 		length int
-		Head   *Node
+		Head   *ListNode
 	}
 	tests := []struct {
 		name    string
@@ -205,7 +205,7 @@ func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 			name: "single node SinglyLinkList del",
 			fields: fields{
 				length: 1,
-				Head: &Node{Val: 1},
+				Head: &ListNode{Val: 1},
 			},
 			wantErr: false,
 		},
@@ -213,11 +213,11 @@ func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 			name: "normal SinglyLinkList del",
 			fields: fields{
 				length: 3,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val: 2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
@@ -240,7 +240,7 @@ func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 	type fields struct {
 		length int
-		Head   *Node
+		Head   *ListNode
 	}
 	tests := []struct {
 		name   string
@@ -257,7 +257,7 @@ func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 			name: "single node SinglyLinkList pop",
 			fields: fields{
 				length: 1,
-				Head: &Node{Val: 1},
+				Head: &ListNode{Val: 1},
 			},
 			want: 1,
 		},
@@ -265,11 +265,11 @@ func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 			name: "normal SinglyLinkList pop at begin",
 			fields: fields{
 				length: 3,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val: 2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
@@ -292,7 +292,7 @@ func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 func TestSinglyLinkedList_PopAtEnd(t *testing.T) {
 	type fields struct {
 		length int
-		Head   *Node
+		Head   *ListNode
 	}
 	tests := []struct {
 		name   string
@@ -309,7 +309,7 @@ func TestSinglyLinkedList_PopAtEnd(t *testing.T) {
 			name: "single node SinglyLinkList pop",
 			fields: fields{
 				length: 1,
-				Head: &Node{Val: 1},
+				Head: &ListNode{Val: 1},
 			},
 			want: 1,
 		},
@@ -317,11 +317,11 @@ func TestSinglyLinkedList_PopAtEnd(t *testing.T) {
 			name: "normal SinglyLinkList pop at end",
 			fields: fields{
 				length: 3,
-				Head: &Node{
+				Head: &ListNode{
 					Val: 1,
-					Next: &Node{
+					Next: &ListNode{
 						Val: 2,
-						Next: &Node{Val: 3},
+						Next: &ListNode{Val: 3},
 					},
 				},
 			},
