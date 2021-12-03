@@ -18,8 +18,13 @@ func NewListNode() *ListNode {
 func (sll *SinglyLinkedList) AddAtBegin(val interface{}) {
 	sll.Length++
 	node := &ListNode{Val: val}
-	node.Next = sll.Head
-	sll.Head = node
+	sll.Head = AddListNodeAtBegin(sll.Head, node)
+}
+
+// AddListNodeAtBegin add single ListNode at the beginning of the ListNode
+func AddListNodeAtBegin(cur, head *ListNode) *ListNode{
+	head.Next = cur
+	return head
 }
 
 // AddAtEnd add new SinglyLinkedList node at the end of the list
@@ -35,6 +40,7 @@ func (sll *SinglyLinkedList) AddAtEnd(val interface{}) {
 	sll.Head.AddListNodeAtEnd(node)
 }
 
+// AddListNodeAtEnd add ListNode at the end of the ListNode
 func (ln *ListNode) AddListNodeAtEnd(tail *ListNode) {
 	head := ln
 	for head.Next != nil{
@@ -48,6 +54,17 @@ func (ln *ListNode) AddListNodeAtEnd(tail *ListNode) {
 // Count return the length of the SinglyLinkedList
 func (sll *SinglyLinkedList) Count() int {
 	return sll.Length
+}
+
+// Count return the length of the ListNode
+func (ln *ListNode) Count() int {
+	head := ln
+	count := 0
+	for head !=	nil {
+		count++
+		head = head.Next
+	}
+	return count
 }
 
 // Display prints out the elements of the SinglyLinkedList.
