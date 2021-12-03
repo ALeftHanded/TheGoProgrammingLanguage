@@ -51,13 +51,12 @@ func TestGetIntersectionNode(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if tt.args.headA != nil {
-
-				tt.args.headA.Next = tt.args.commonPart
+				tt.args.headA.AddListNodeAtEnd(tt.args.commonPart)
 			} else {
 				tt.args.headA = tt.args.commonPart
 			}
 			if tt.args.headB != nil {
-				tt.args.headB.Next = tt.args.commonPart
+				tt.args.headB.Next.AddListNodeAtEnd(tt.args.commonPart)
 			} else {
 				tt.args.headB = tt.args.commonPart
 			}

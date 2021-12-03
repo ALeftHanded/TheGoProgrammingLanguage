@@ -129,6 +129,43 @@ func TestSinglyLinkedList_AddAtEnd(t *testing.T) {
 	}
 }
 
+func TestListNode_AddListNodeAtEnd(t *testing.T) {
+	type fields struct {
+		Val  interface{}
+		Next *ListNode
+	}
+	type args struct {
+		tail *ListNode
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		// TODO: Add test cases.
+		{
+			name: "normal test",
+			fields: fields{
+				Val:  123,
+				Next:  &ListNode{Val: 1231312},
+			},
+			args: args{ArrayToSinglyLinkedList([]interface{}{1,2,34,4,52,53}).Head},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ln := &ListNode{
+				Val:  tt.fields.Val,
+				Next: tt.fields.Next,
+			}
+			ln.Display()
+			ln.AddListNodeAtEnd(tt.args.tail)
+			ln.Display()
+		})
+	}
+}
+
+
 func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 	type fields struct {
 		length int

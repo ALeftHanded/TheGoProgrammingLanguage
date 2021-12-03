@@ -32,12 +32,15 @@ func (sll *SinglyLinkedList) AddAtEnd(val interface{}) {
 		sll.Head = node
 		return
 	}
+	sll.Head.AddListNodeAtEnd(node)
+}
 
-	head := sll.Head
-	for head.Next != nil {
+func (ln *ListNode) AddListNodeAtEnd(tail *ListNode) {
+	head := ln
+	for head.Next != nil{
 		head = head.Next
 	}
-	head.Next = node
+	head.Next = tail
 }
 
 // Read
@@ -54,6 +57,16 @@ func (sll *SinglyLinkedList) Display() {
 	if head == nil {
 		fmt.Printf("----- SinglyLinkedList is empty! -----\n")
 	}
+	for head != nil {
+		fmt.Printf("%v\n", head.Val)
+		head = head.Next
+	}
+	fmt.Printf("----- End display -----\n")
+}
+
+func (ln *ListNode) Display()  {
+	head := ln
+	fmt.Printf("----- Start display -----\n")
 	for head != nil {
 		fmt.Printf("%v\n", head.Val)
 		head = head.Next
