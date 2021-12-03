@@ -49,6 +49,18 @@ func (ln *ListNode) AddListNodeAtEnd(tail *ListNode) {
 	head.Next = tail
 }
 
+func AddListNodeAtEnd(cur, tail *ListNode) *ListNode{
+	if cur == nil{
+		return tail
+	}
+	head := cur
+	for head.Next != nil{
+		head = head.Next
+	}
+	head.Next = tail
+	return cur
+}
+
 // Read
 
 // Count return the length of the SinglyLinkedList

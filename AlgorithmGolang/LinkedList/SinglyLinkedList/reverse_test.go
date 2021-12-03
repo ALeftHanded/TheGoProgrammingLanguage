@@ -100,3 +100,53 @@ func TestReverseList(t *testing.T) {
 		})
 	}
 }
+
+func TestReverseBetween(t *testing.T) {
+	type args struct {
+		head  *ListNode
+		left  int
+		right int
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+	}{
+		// TODO: Add test cases.
+		{
+			name: "normal test",
+			args: args{
+				head:  ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7,8,9}).Head,
+				left:  3,
+				right: 8,
+			},
+			want: ArrayToSinglyLinkedList([]interface{}{1,2,8,7,6,5,4,3,9}).Head,
+		},
+		{
+			name: "single test",
+			args: args{
+				head:  ArrayToSinglyLinkedList([]interface{}{1}).Head,
+				left:  1,
+				right: 1,
+			},
+			want: ArrayToSinglyLinkedList([]interface{}{1}).Head,
+		},
+		{
+			name: "left=0 right=length(listnode) test",
+			args: args{
+				head:  ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7}).Head,
+				left:  1,
+				right: 7,
+			},
+			want: ArrayToSinglyLinkedList([]interface{}{7,6,5,4,3,2,1}).Head,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ReverseBetween(tt.args.head, tt.args.left, tt.args.right); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("ReverseBetween() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
