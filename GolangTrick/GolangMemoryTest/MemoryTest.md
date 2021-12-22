@@ -42,7 +42,13 @@ ReportAllocs **enables malloc statistics** for this benchmark. It is equivalent 
 
 ResetTimer **zeroes the elapsed benchmark time** and **memory allocation counters** and **deletes user-reported metrics**. It does not affect whether the timer is running.
 
-`test shell command`
+##### StopTimer
+
+> https://pkg.go.dev/testing#B.StopTimer
+
+StopTimer **stops timing a test**. This can be used to pause the timer while performing complex initialization that you don't want to measure.
+
+ `test shell command`
 
 go test
 
