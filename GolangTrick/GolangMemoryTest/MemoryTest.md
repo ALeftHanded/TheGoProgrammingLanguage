@@ -56,6 +56,17 @@ go test
 go test -bench=. -benchmem -memprofile memprofile.out
 ```
 
+Result: **65536B/op**
+
+```shell
+goos: darwin
+goarch: amd64
+pkg: GolangTrick/GolangMemoryTest
+BenchmarkMemExample-16            207897              5687 ns/op           65536 B/op          1 allocs/op
+PASS
+ok      GolangTrick/GolangMemoryTest    1.824s
+```
+
 pprof
 
 ```shell
@@ -73,6 +84,6 @@ Generating report in profile001.gif
 (pprof) quit
 ```
 
-profile001.gif
+profile001.gif: **64kB** 
 
 ![profile001](./profile001.gif)
