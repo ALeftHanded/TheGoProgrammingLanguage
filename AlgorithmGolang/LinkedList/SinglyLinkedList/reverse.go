@@ -1,6 +1,5 @@
 package SinglyLinkedList
 
-
 func ReverseSingleLinkedList(sll *SinglyLinkedList) *SinglyLinkedList {
 	if sll == nil {
 		return nil
@@ -11,7 +10,6 @@ func ReverseSingleLinkedList(sll *SinglyLinkedList) *SinglyLinkedList {
 		Head:   head,
 	}
 }
-
 
 // ReverseList 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
 func ReverseList(head *ListNode) *ListNode {
@@ -31,9 +29,9 @@ func ReverseList(head *ListNode) *ListNode {
 // -500 <= Node.val <= 500
 // 1 <= left <= right <= n
 func ReverseBetween(head *ListNode, left int, right int) *ListNode {
-	/* Fixme high memory usage
+	// Fixme high memory usage
 	headToLeft := head
-	count:= 1
+	count := 1
 	// 保证head指向left侧
 	for count < left {
 		count++
@@ -59,28 +57,4 @@ func ReverseBetween(head *ListNode, left int, right int) *ListNode {
 	return AddListNodeAtEnd(
 		headToLeft, AddListNodeAtEnd(
 			ReverseList(leftToRight), rightToTail))
-	*/
-	var headToLeft *ListNode
-	count:= 1
-	if left > 1{
-		headToLeft = head
-	}
-	// 保证head指向left-1侧
-	for count < left - 1 {
-		count++
-		head = head.Next
-	}
-
-	var leftToRightReverse *ListNode
-	for count <= right {
-		cur := head
-		head = head.Next
-		cur.Next = leftToRightReverse
-		leftToRightReverse = cur
-		count++
-	}
-	// 保证head指向right+1侧
-	return AddListNodeAtEnd(
-		headToLeft, AddListNodeAtEnd(
-			leftToRightReverse, head))
 }
