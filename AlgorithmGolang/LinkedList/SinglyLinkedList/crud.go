@@ -22,7 +22,7 @@ func (sll *SinglyLinkedList) AddAtBegin(val interface{}) {
 }
 
 // AddListNodeAtBegin add single ListNode at the beginning of the ListNode
-func AddListNodeAtBegin(cur, head *ListNode) *ListNode{
+func AddListNodeAtBegin(cur, head *ListNode) *ListNode {
 	head.Next = cur
 	return head
 }
@@ -43,18 +43,18 @@ func (sll *SinglyLinkedList) AddAtEnd(val interface{}) {
 // AddListNodeAtEnd add ListNode at the end of the ListNode
 func (ln *ListNode) AddListNodeAtEnd(tail *ListNode) {
 	head := ln
-	for head.Next != nil{
+	for head.Next != nil {
 		head = head.Next
 	}
 	head.Next = tail
 }
 
-func AddListNodeAtEnd(cur, tail *ListNode) *ListNode{
-	if cur == nil{
+func AddListNodeAtEnd(cur, tail *ListNode) *ListNode {
+	if cur == nil {
 		return tail
 	}
 	head := cur
-	for head.Next != nil{
+	for head.Next != nil {
 		head = head.Next
 	}
 	head.Next = tail
@@ -72,7 +72,7 @@ func (sll *SinglyLinkedList) Count() int {
 func (ln *ListNode) Count() int {
 	head := ln
 	count := 0
-	for head !=	nil {
+	for head != nil {
 		count++
 		head = head.Next
 	}
@@ -93,12 +93,15 @@ func (sll *SinglyLinkedList) Display() {
 	fmt.Printf("----- End display -----\n")
 }
 
-func (ln *ListNode) Display()  {
+func (ln *ListNode) Display() {
 	head := ln
 	fmt.Printf("----- Start display -----\n")
 	for head != nil {
 		fmt.Printf("%v\n", head.Val)
 		head = head.Next
+	}
+	if head == nil {
+		fmt.Printf("----- LinkedList is empty -----\n")
 	}
 	fmt.Printf("----- End display -----\n")
 }
