@@ -7,6 +7,9 @@ func MergeSort(arr []int) []int {
 	mid := len(arr) >> 1
 	leftList, rightList := MergeSort(arr[:mid]), MergeSort(arr[mid:])
 	// leftList, rightList := MergeSort(arr[:mid+1]), MergeSort(arr[mid+1:])
+	// it will not make it...
+	// because when mid is 1, mid+1 = 2
+	// then there will be infinite loop in MergeSort(arr[:mid+1])
 	return MergeSortedList(leftList, rightList)
 }
 
