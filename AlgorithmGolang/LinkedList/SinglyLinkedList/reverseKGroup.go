@@ -1,5 +1,12 @@
 package SinglyLinkedList
 
+// ReverseKGroup 给你一个链表，每k个节点一组进行翻转，请你返回翻转后的链表。
+// k是一个正整数，它的值小于或等于链表的长度。
+// 如果节点总数不是k的整数倍，那么请将最后剩余的节点保持原有顺序。
+// 列表中节点的数量在范围 sz 内
+// 1 <= sz <= 5000
+// 0 <= Node.val <= 1000
+// 1 <= k <= sz
 func ReverseKGroup(head *ListNode, k int) *ListNode {
 	length := Count(head)
 	splitKGroup := SplitIntoGroupByK(head, k)
