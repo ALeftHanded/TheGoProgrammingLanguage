@@ -34,23 +34,3 @@ LinkedList相关的CodeTop频度大于等于20的习题
 #### Hard
 1. [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)
 2. [23. 合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)
-
-### Folder Category
-
-```txt
-LinkedList
-├── CircularLinkedList
-│   └── CircularLinkedList.md
-├── DoublyLinkedList
-│   └── DoublyLinkedList.md
-├── LinkedList.md
-└── SinglyLinkedList
-    ├── SinglyLinkedList.md
-    ├── array.go
-    ├── array_test.go
-    ├── crud.go
-    ├── crud_test.go
-    ├── define.go
-    ├── reverse.go
-    └── reverse_test.go
-```
