@@ -33,3 +33,23 @@ func SplitIntoTwoByParity(head *ListNode) (*ListNode, *ListNode) {
 
 	return odd, even
 }
+
+// SplitIntoGroupByK Split Node into groups which the length of group is k.
+func SplitIntoGroupByK(head *ListNode, k int) []*ListNode {
+	var res []*ListNode
+	length := Count(head)
+	if length <= k {
+		return append(res, head)
+	}
+	for i := 0; i < length/k; i++ {
+		cur, tmpSplit := head, head
+		for j := 0; j < k-1; j++ {
+			cur = cur.Next
+		}
+		head = cur.Next
+		cur.Next = nil
+		res = append(res, tmpSplit)
+	}
+	res = append(res, head)
+	return res
+}

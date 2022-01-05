@@ -101,3 +101,34 @@ func TestSplitIntoTwoByParity(t *testing.T) {
 		})
 	}
 }
+
+func TestSplitIntoGroupByK(t *testing.T) {
+	type args struct {
+		head *ListNode
+		k    int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []*ListNode
+	}{
+		// TODO: Add test cases.
+		{
+			name: "normal test",
+			args: args{head: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}).Head, k: 3},
+			want: []*ListNode{
+				ArrayToSinglyLinkedList([]interface{}{1, 2, 3}).Head,
+				ArrayToSinglyLinkedList([]interface{}{4, 5, 6}).Head,
+				ArrayToSinglyLinkedList([]interface{}{7, 8, 9}).Head,
+				ArrayToSinglyLinkedList([]interface{}{10}).Head,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := SplitIntoGroupByK(tt.args.head, tt.args.k); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("SplitIntoGroupByK() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

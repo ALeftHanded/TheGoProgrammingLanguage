@@ -79,6 +79,15 @@ func (ln *ListNode) Count() int {
 	return count
 }
 
+func Count(head *ListNode) int {
+	count := 0
+	for head != nil {
+		count++
+		head = head.Next
+	}
+	return count
+}
+
 // Display prints out the elements of the SinglyLinkedList.
 func (sll *SinglyLinkedList) Display() {
 	head := sll.Head

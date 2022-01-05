@@ -17,3 +17,5 @@ Need review and rewrite
 - [x] [160. 相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists)
 - [x] [143. 重排链表](https://leetcode-cn.com/problems/reorder-list)
 - [x] [148. 排序链表](https://leetcode-cn.com/problems/sort-list)
+- [x] [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group)
+- [ ] [23. 合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)
