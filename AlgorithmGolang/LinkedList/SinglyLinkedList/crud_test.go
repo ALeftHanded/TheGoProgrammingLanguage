@@ -38,9 +38,8 @@ func TestSinglyLinkedList_AddAtBegin(t *testing.T) {
 		fields fields
 		args   args
 	}{
-		// TODO: Add test cases.
 		{
-			name: "empty list first add",
+			name:   "empty list first add",
 			fields: fields{},
 			args: args{
 				val: 123,
@@ -53,7 +52,7 @@ func TestSinglyLinkedList_AddAtBegin(t *testing.T) {
 				Head: &ListNode{
 					Val: 1,
 					Next: &ListNode{
-						Val: 2,
+						Val:  2,
 						Next: &ListNode{Val: 3},
 					},
 				},
@@ -90,9 +89,8 @@ func TestSinglyLinkedList_AddAtEnd(t *testing.T) {
 		fields fields
 		args   args
 	}{
-		// TODO: Add test cases.
 		{
-			name: "empty list add at end",
+			name:   "empty list add at end",
 			fields: fields{},
 			args: args{
 				val: 123,
@@ -142,14 +140,13 @@ func TestListNode_AddListNodeAtEnd(t *testing.T) {
 		fields fields
 		args   args
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			fields: fields{
 				Val:  123,
-				Next:  &ListNode{Val: 1231312},
+				Next: &ListNode{Val: 1231312},
 			},
-			args: args{ArrayToSinglyLinkedList([]interface{}{1,2,34,4,52,53}).Head},
+			args: args{ArrayToSinglyLinkedList([]interface{}{1, 2, 34, 4, 52, 53}).Head},
 		},
 	}
 	for _, tt := range tests {
@@ -165,7 +162,6 @@ func TestListNode_AddListNodeAtEnd(t *testing.T) {
 	}
 }
 
-
 func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 	type fields struct {
 		length int
@@ -176,17 +172,16 @@ func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 		fields  fields
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
-			name: "empty SinglyLinkedList del",
-			fields: fields{},
+			name:    "empty SinglyLinkedList del",
+			fields:  fields{},
 			wantErr: true,
 		},
 		{
 			name: "single node SinglyLinkList del",
 			fields: fields{
 				length: 1,
-				Head: &ListNode{Val: 1},
+				Head:   &ListNode{Val: 1},
 			},
 			wantErr: false,
 		},
@@ -197,7 +192,7 @@ func TestSinglyLinkedList_DelAtBegin(t *testing.T) {
 				Head: &ListNode{
 					Val: 1,
 					Next: &ListNode{
-						Val: 2,
+						Val:  2,
 						Next: &ListNode{Val: 3},
 					},
 				},
@@ -232,17 +227,16 @@ func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 		fields  fields
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
-			name: "empty SinglyLinkedList del",
-			fields: fields{},
+			name:    "empty SinglyLinkedList del",
+			fields:  fields{},
 			wantErr: true,
 		},
 		{
 			name: "single node SinglyLinkList del",
 			fields: fields{
 				length: 1,
-				Head: &ListNode{Val: 1},
+				Head:   &ListNode{Val: 1},
 			},
 			wantErr: false,
 		},
@@ -253,7 +247,7 @@ func TestSinglyLinkedList_DelAtEnd(t *testing.T) {
 				Head: &ListNode{
 					Val: 1,
 					Next: &ListNode{
-						Val: 2,
+						Val:  2,
 						Next: &ListNode{Val: 3},
 					},
 				},
@@ -284,17 +278,16 @@ func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 		fields fields
 		want   interface{}
 	}{
-		// TODO: Add test cases.
 		{
-			name: "empty SinglyLinkedList pop",
+			name:   "empty SinglyLinkedList pop",
 			fields: fields{},
-			want: -1,
+			want:   -1,
 		},
 		{
 			name: "single node SinglyLinkList pop",
 			fields: fields{
 				length: 1,
-				Head: &ListNode{Val: 1},
+				Head:   &ListNode{Val: 1},
 			},
 			want: 1,
 		},
@@ -305,7 +298,7 @@ func TestSinglyLinkedList_PopAtBegin(t *testing.T) {
 				Head: &ListNode{
 					Val: 1,
 					Next: &ListNode{
-						Val: 2,
+						Val:  2,
 						Next: &ListNode{Val: 3},
 					},
 				},
@@ -336,17 +329,16 @@ func TestSinglyLinkedList_PopAtEnd(t *testing.T) {
 		fields fields
 		want   interface{}
 	}{
-		// TODO: Add test cases.
 		{
-			name: "empty SinglyLinkedList pop",
+			name:   "empty SinglyLinkedList pop",
 			fields: fields{},
-			want: -1,
+			want:   -1,
 		},
 		{
 			name: "single node SinglyLinkList pop",
 			fields: fields{
 				length: 1,
-				Head: &ListNode{Val: 1},
+				Head:   &ListNode{Val: 1},
 			},
 			want: 1,
 		},
@@ -357,7 +349,7 @@ func TestSinglyLinkedList_PopAtEnd(t *testing.T) {
 				Head: &ListNode{
 					Val: 1,
 					Next: &ListNode{
-						Val: 2,
+						Val:  2,
 						Next: &ListNode{Val: 3},
 					},
 				},

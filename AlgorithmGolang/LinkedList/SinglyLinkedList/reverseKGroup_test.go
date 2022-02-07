@@ -15,7 +15,6 @@ func TestReverseKGroup(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{head: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}).Head, k: 3},

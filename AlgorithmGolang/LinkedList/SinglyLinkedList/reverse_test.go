@@ -14,13 +14,12 @@ func TestReverseSingleLinkedList(t *testing.T) {
 		args args
 		want *SinglyLinkedList
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal reverse test",
 			args: args{
-				sll: ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7,8,9,0}),
+				sll: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}),
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{0,9,8,7,6,5,4,3,2,1}),
+			want: ArrayToSinglyLinkedList([]interface{}{0, 9, 8, 7, 6, 5, 4, 3, 2, 1}),
 		},
 		{
 			name: "nil reverse test",
@@ -62,13 +61,12 @@ func TestReverseList(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal reverse test",
 			args: args{
-				head: ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7,8,9,0}).Head,
+				head: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}).Head,
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{0,9,8,7,6,5,4,3,2,1}).Head,
+			want: ArrayToSinglyLinkedList([]interface{}{0, 9, 8, 7, 6, 5, 4, 3, 2, 1}).Head,
 		},
 		{
 			name: "nil reverse test",
@@ -112,15 +110,14 @@ func TestReverseBetween(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{
-				head:  ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7,8,9}).Head,
+				head:  ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9}).Head,
 				left:  3,
 				right: 8,
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{1,2,8,7,6,5,4,3,9}).Head,
+			want: ArrayToSinglyLinkedList([]interface{}{1, 2, 8, 7, 6, 5, 4, 3, 9}).Head,
 		},
 		{
 			name: "single test",
@@ -134,11 +131,11 @@ func TestReverseBetween(t *testing.T) {
 		{
 			name: "left=0 right=length(listnode) test",
 			args: args{
-				head:  ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7}).Head,
+				head:  ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7}).Head,
 				left:  1,
 				right: 7,
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{7,6,5,4,3,2,1}).Head,
+			want: ArrayToSinglyLinkedList([]interface{}{7, 6, 5, 4, 3, 2, 1}).Head,
 		},
 	}
 	for _, tt := range tests {
@@ -149,4 +146,3 @@ func TestReverseBetween(t *testing.T) {
 		})
 	}
 }
-

@@ -14,7 +14,6 @@ func TestReorderList(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{

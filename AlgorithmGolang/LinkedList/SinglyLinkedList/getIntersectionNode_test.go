@@ -6,44 +6,43 @@ import (
 
 func TestGetIntersectionNode(t *testing.T) {
 	type args struct {
-		headA *ListNode
-		headB *ListNode
+		headA      *ListNode
+		headB      *ListNode
 		commonPart *ListNode
 	}
 	tests := []struct {
 		name string
 		args args
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{
-				headA: ArrayToSinglyLinkedList([]interface{}{9,4,6}).Head,
-				headB: ArrayToSinglyLinkedList([]interface{}{9,4,6,1,234,35}).Head,
-				commonPart: ArrayToSinglyLinkedList([]interface{}{1,2,3,4}).Head,
+				headA:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6}).Head,
+				headB:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6, 1, 234, 35}).Head,
+				commonPart: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4}).Head,
 			},
 		},
 		{
 			name: "same value test",
 			args: args{
-				headA: ArrayToSinglyLinkedList([]interface{}{9,4,6}).Head,
-				headB: ArrayToSinglyLinkedList([]interface{}{9,4,6}).Head,
-				commonPart: ArrayToSinglyLinkedList([]interface{}{1,2,3,4}).Head,
+				headA:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6}).Head,
+				headB:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6}).Head,
+				commonPart: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4}).Head,
 			},
 		},
 		{
 			name: "no common part test",
 			args: args{
-				headA: ArrayToSinglyLinkedList([]interface{}{9,4,6}).Head,
-				headB: ArrayToSinglyLinkedList([]interface{}{9,4,6}).Head,
+				headA:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6}).Head,
+				headB:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6}).Head,
 				commonPart: nil,
 			},
 		},
 		{
 			name: "one head nil test",
 			args: args{
-				headA: nil,
-				headB: ArrayToSinglyLinkedList([]interface{}{9,4,6}).Head,
+				headA:      nil,
+				headB:      ArrayToSinglyLinkedList([]interface{}{9, 4, 6}).Head,
 				commonPart: ArrayToSinglyLinkedList([]interface{}{9}).Head,
 			},
 		},
@@ -66,4 +65,3 @@ func TestGetIntersectionNode(t *testing.T) {
 		})
 	}
 }
-

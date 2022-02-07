@@ -14,7 +14,6 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 		args args
 		want *SinglyLinkedList
 	}{
-		// TODO: Add test cases.
 		{
 			name: "nil arr test",
 			args: args{
@@ -39,7 +38,7 @@ func TestArrayToSinglyLinkedList(t *testing.T) {
 				Head: &ListNode{
 					Val: 1,
 					Next: &ListNode{
-						Val: 2,
+						Val:  2,
 						Next: &ListNode{Val: 3},
 					},
 				},
@@ -64,7 +63,6 @@ func TestSinglyLinkedListToArray(t *testing.T) {
 		args args
 		want []interface{}
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal SinglyLinkedList test",
 			args: args{

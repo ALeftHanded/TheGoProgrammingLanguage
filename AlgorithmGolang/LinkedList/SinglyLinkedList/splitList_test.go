@@ -15,7 +15,6 @@ func TestSplitIntoTwoFromTheMiddle(t *testing.T) {
 		want1 *ListNode
 		want2 *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{
@@ -64,7 +63,6 @@ func TestSplitIntoTwoByParity(t *testing.T) {
 		want1 *ListNode
 		want2 *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{
@@ -112,7 +110,6 @@ func TestSplitIntoGroupByK(t *testing.T) {
 		args args
 		want []*ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{head: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}).Head, k: 3},

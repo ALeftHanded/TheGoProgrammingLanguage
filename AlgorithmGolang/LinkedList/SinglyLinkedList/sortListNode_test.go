@@ -14,7 +14,6 @@ func TestSortListNode(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{head: ArrayToSinglyLinkedList([]interface{}{5, 4, 3, 2, 1}).Head},

@@ -15,7 +15,6 @@ func TestMergeTwoSinglyLinkedLists(t *testing.T) {
 		args args
 		want *SinglyLinkedList
 	}{
-		// TODO: Add test cases.
 		{
 			name: "both nil",
 			args: args{
@@ -52,14 +51,13 @@ func TestMergeTwoLists(t *testing.T) {
 		args args
 		want *ListNode
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test",
 			args: args{
-				list1: ArrayToSinglyLinkedList([]interface{}{1,3,5,7,9}).Head,
-				list2: ArrayToSinglyLinkedList([]interface{}{2,4,6,8}).Head,
+				list1: ArrayToSinglyLinkedList([]interface{}{1, 3, 5, 7, 9}).Head,
+				list2: ArrayToSinglyLinkedList([]interface{}{2, 4, 6, 8}).Head,
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{1,2,3,4,5,6,7,8,9}).Head,
+			want: ArrayToSinglyLinkedList([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9}).Head,
 		},
 		{
 			name: "both nil",
@@ -73,17 +71,17 @@ func TestMergeTwoLists(t *testing.T) {
 			name: "list1 nil",
 			args: args{
 				list1: nil,
-				list2: ArrayToSinglyLinkedList([]interface{}{2,4,6,8}).Head,
+				list2: ArrayToSinglyLinkedList([]interface{}{2, 4, 6, 8}).Head,
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{2,4,6,8}).Head,
+			want: ArrayToSinglyLinkedList([]interface{}{2, 4, 6, 8}).Head,
 		},
 		{
 			name: "list2 nil",
 			args: args{
-				list1: ArrayToSinglyLinkedList([]interface{}{1,3,5,7,9}).Head,
+				list1: ArrayToSinglyLinkedList([]interface{}{1, 3, 5, 7, 9}).Head,
 				list2: nil,
 			},
-			want: ArrayToSinglyLinkedList([]interface{}{1,3,5,7,9}).Head,
+			want: ArrayToSinglyLinkedList([]interface{}{1, 3, 5, 7, 9}).Head,
 		},
 	}
 	for _, tt := range tests {
