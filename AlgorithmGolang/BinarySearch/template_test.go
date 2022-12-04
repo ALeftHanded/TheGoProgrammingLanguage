@@ -1,29 +1,6 @@
-Generated Test_condition
-Generated TestBinarySearch
 package BinarySearch
 
 import "testing"
-
-func Test_condition(t *testing.T) {
-	type args struct {
-		num int
-		n   int
-	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := condition(tt.args.num, tt.args.n); got != tt.want {
-				t.Errorf("condition() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
 
 func TestBinarySearch(t *testing.T) {
 	type args struct {
@@ -35,15 +12,28 @@ func TestBinarySearch(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		{
+			name: "normal test",
+			args: args{
+				arr: []int{1, 3, 5, 7, 9},
+				n:   5,
+			},
+			want: 2,
+		},
+		{
+			name: "tle test",
+			args: args{
+				arr: []int{-1, 0, 3, 5, 9, 12},
+				n:   2,
+			},
+			want: -1,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := BinarySearch(tt.args.arr, tt.args.n); got != tt.want {
+			if got := search(tt.args.arr, tt.args.n); got != tt.want {
 				t.Errorf("BinarySearch() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
-input.Files: os.Stat: stat /Users/xiaohan.lu/TheGoProgrammingLanguage/AlgorithmGolang/BinarySearch/-: no such file or directory
-
