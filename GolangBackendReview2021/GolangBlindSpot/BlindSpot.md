@@ -80,3 +80,39 @@ iAreaId := val.(int)
 `在method receiver中修改caller本身不会生效`
 
 > When you assign a value to the method receiver, the value will not be reflected outside of the method itself. Values will be reflected in subsequent calls from the same method.
+
+#### 5. Golang Initialize Struct
+
+```go
+type Tmp struct{
+	Val int
+	Name string
+} 
+
+// t is nil
+var t *Tmp
+// t is not nil, t.Val = 0, t.Name = ""
+t := &Tmp{}
+```
+
+#### 6. Timestamp之间比较的时候，如果采用time_a<time_b，需要注意两端相差不会超过一秒
+
+
+#### 7. golang 对正则表达式的识别问题
+
+```go
+// 匹配整数或者一、二位小数
+const RegexpGuidePurchasePrice = `^(\d+\.{1}\d{1,2})|(\d+)$`
+// 此时match可以通过，因为正则表达式被解析为
+// ^(\d+\.{1}\d{1,2}) 或者 (\d+)$
+match, _ := regexp.MatchString(RegexpGuidePurchasePrice, "dd123.1212312")
+// 此时可通过 match = true
+// 加上括号后即可精准匹配
+const RegexpGuidePurchasePrice = `^((\d+\.{1}\d{1,2})|(\d+))$`
+```
+
+#### 8. omitempty
+
+> https://www.sohamkamani.com/golang/omitempty/
+
+<span style="color:yellow">TODO</span>
