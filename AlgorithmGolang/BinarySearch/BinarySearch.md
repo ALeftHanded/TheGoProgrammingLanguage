@@ -93,17 +93,17 @@ def binary_search(array) -> int:
 
 #### Easy
 
-1. [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
-2. [69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+1. - [x] [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
+2. - [x] [69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
 
 #### Medium
 
-1. [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
-2. [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
-3. [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)
-4. [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
-5. [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+1. - [ ] [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+2. - [ ] [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+3. - [ ] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)
+4. - [ ] [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
+5. - [ ] [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
 
 #### Hard
 
-1. [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+1. - [ ] [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
