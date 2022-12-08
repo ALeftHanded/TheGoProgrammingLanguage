@@ -1,6 +1,10 @@
 package BinarySearch
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestBinarySearch(t *testing.T) {
 	type args struct {
@@ -21,19 +25,26 @@ func TestBinarySearch(t *testing.T) {
 			want: 2,
 		},
 		{
-			name: "tle test",
+			name: "cannot find/tle test",
 			args: args{
 				arr: []int{-1, 0, 3, 5, 9, 12},
 				n:   2,
 			},
 			want: -1,
 		},
+		{
+			name: "single element array test",
+			args: args{
+				arr: []int{1},
+				n:   1,
+			},
+			want: 0,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := search(tt.args.arr, tt.args.n); got != tt.want {
-				t.Errorf("BinarySearch() = %v, want %v", got, tt.want)
-			}
+			got := BinarySearch(tt.args.arr, tt.args.n)
+			assert.Equalf(t, tt.want, got, "BinarySearch() = %v, want %v", got, tt.want)
 		})
 	}
 }
