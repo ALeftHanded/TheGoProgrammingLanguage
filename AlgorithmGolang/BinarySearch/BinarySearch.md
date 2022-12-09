@@ -99,11 +99,33 @@ def binary_search(array) -> int:
 #### Medium
 
 1. - [ ] [33. 搜索旋转排序数组](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+
 2. - [ ] [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+
 3. - [ ] [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)
-4. - [ ] [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
-5. - [ ] [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+
+4. - [ ] [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+5. - [ ] [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
+
+6. - [ ] [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+
+7. - [ ] [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
+
+8. - [ ] [209. 长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+
+9. - [ ] [50. Pow(x, n)](https://leetcode.cn/problems/powx-n/)
+
+10. - [ ] [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix/)
+
+11.   - [ ] [230. 二叉搜索树中第K小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)
+
+12.   - [ ] [287. 寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/)
+
+13.   - [ ] [349. 两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays/)
 
 #### Hard
 
 1. - [ ] [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+
+ 2.  - [ ] [887. 鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop/)
