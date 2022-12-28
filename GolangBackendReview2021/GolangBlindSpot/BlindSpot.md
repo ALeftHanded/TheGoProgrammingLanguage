@@ -116,3 +116,35 @@ const RegexpGuidePurchasePrice = `^((\d+\.{1}\d{1,2})|(\d+))$`
 > https://www.sohamkamani.com/golang/omitempty/
 
 <span style="color:yellow">TODO</span>
+
+#### 9. json unmarshall cannot unmarshall nil value
+
+wrong code template
+
+```go
+var v *T
+// v is nil and cause error
+err := json.Unmarshal(data, v)
+// err is InvalidUnmarshalError
+```
+
+because
+```go
+func (d *decodeState) unmarshal(v interface{}) error {
+    rv := reflect.ValueOf(v)
+	// nil check here
+    if rv.Kind() != reflect.Ptr || rv.IsNil() {
+        return &InvalidUnmarshalError{reflect.TypeOf(v)}
+    }
+    
+    d.scan.reset()
+    d.scanWhile(scanSkipSpace)
+    // We decode rv not rv.Elem because the Unmarshaler interface
+    // test must be applied at the top level of the value.
+    err := d.value(rv)
+    if err != nil {
+        return d.addErrorContext(err)
+    }
+    return d.savedError
+}
+```

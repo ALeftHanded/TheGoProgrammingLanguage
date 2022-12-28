@@ -52,6 +52,45 @@ func FindMinimumInRotatedSortedArray(nums []int) int {
 	return nums[left]
 }
 
-func Optimization_FindMinimumInRotatedSortedArray(nums []int) int {
-	return 0
+// * 分析：单增或先增后增
+// * 单增或单元素数组直接返回nums[left]
+// * 1. nums[mid] == nums[right] 必然为单元素数组
+// * (left + right) >> 1 <= right
+// * if left + right = 2k+1 (k是任意整数), left < right, 有right >= k+1 > k 即 (left + right) >>1
+// * if left + right = 2k, left < right, 有 right > k 即 (left + right) >>1
+// * if left == right, right == (left+right) >> 1
+// * 1. nums[mid] > nums[right] 必然先增后增，且命中先增区域，此时最小值在右闭区间, 不需要包括mid
+// * 2. nums[mid] < nums[right]
+// * 2.1. 单增，此时最小值在nums[left]，直接返回nums[left]，也在左闭区间
+// * 2.2. 先增后增且命中后增区域，此时最小值在左闭区间, 需要带上mid，mid有可能是min值
+
+func Optimization_FindMinimumInRotatedSortedArray_v1(nums []int) int {
+	left, right := 0, len(nums)-1
+	for left <= right {
+		mid := left + (right-left)>>1
+		if nums[mid] == nums[right] {
+			break
+		}
+		if nums[mid] > nums[right] {
+			left = mid + 1
+		} else {
+			right = mid
+		}
+	}
+	return nums[right]
+}
+
+// * nums[mid] == nums[right]时break和left<=right中的等于可以抵消掉
+
+func Optimization_FindMinimumInRotatedSortedArray_final(nums []int) int {
+	left, right := 0, len(nums)-1
+	for left < right {
+		mid := left + (right-left)>>1
+		if nums[mid] > nums[right] {
+			left = mid + 1
+		} else {
+			right = mid
+		}
+	}
+	return nums[right]
 }
