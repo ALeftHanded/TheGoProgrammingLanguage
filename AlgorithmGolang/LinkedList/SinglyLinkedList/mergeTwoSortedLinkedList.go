@@ -1,7 +1,7 @@
 package SinglyLinkedList
 
 // 21. 合并两个有序链表
-// https://leetcode-cn.com/problems/merge-two-sorted-lists
+// https://leetcode.cn/problems/merge-two-sorted-lists
 
 func MergeTwoSinglyLinkedLists(l1 *SinglyLinkedList, l2 *SinglyLinkedList) *SinglyLinkedList {
 	var head1, head2 *ListNode
