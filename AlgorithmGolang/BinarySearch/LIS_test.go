@@ -11,6 +11,8 @@ func Test_lengthOfLIS(t *testing.T) {
 	type args struct {
 		nums []int
 	}
+	randNums := genRandomNums(1, 2500, -104, 104)
+
 	tests := []struct {
 		name string
 		args args
@@ -38,14 +40,14 @@ func Test_lengthOfLIS(t *testing.T) {
 			},
 			want: 3,
 		},
-		//{
-		//	name: "random list test",
-		//	args: args{
-		//		nums: genRandomNums(1, 2500, -104, 104),
-		//	},
-		//	// ! deliver the standard answer.
-		//	want: 0,
-		//},
+		{
+			name: "random list test",
+			args: args{
+				nums: randNums,
+			},
+			// ! deliver the standard answer.
+			want: max(initDP(randNums)),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
