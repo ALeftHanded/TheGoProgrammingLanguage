@@ -1,17 +1,18 @@
 package BinarySearch
 
 import (
-	"math/rand"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+
+	"AlgorithmGolang/Tools/random"
 )
 
 func Test_lengthOfLIS(t *testing.T) {
 	type args struct {
 		nums []int
 	}
-	randNums := genRandomNums(1, 2500, -104, 104)
+	randNums := random.GenRandomNums(1, 2500, -104, 104)
 
 	tests := []struct {
 		name string
@@ -54,14 +55,4 @@ func Test_lengthOfLIS(t *testing.T) {
 			assert.Equalf(t, tt.want, lengthOfLIS(tt.args.nums), "lengthOfLIS(%v)", tt.args.nums)
 		})
 	}
-}
-
-func genRandomNums(minLen, maxLen, minElement, maxElement int) []int {
-	var res []int
-	ranLen := rand.Intn(maxLen-minLen) + minLen
-	for i := 0; i < ranLen; i++ {
-		randNum := rand.Intn(maxElement-minElement) + minElement
-		res = append(res, randNum)
-	}
-	return res
 }
