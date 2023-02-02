@@ -3,7 +3,7 @@ package min_test
 import (
 	"testing"
 
-	"AlgorithmGolang/Tools/min"
+	"AlgorithmGolang/Utils/min"
 )
 
 func TestMin(t *testing.T) {

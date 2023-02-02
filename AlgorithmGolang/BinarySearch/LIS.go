@@ -17,11 +17,11 @@ package BinarySearch
 // * dp[n] = max([(dp[j] + 1) ** int(nums[n]>nums[j]) for j in range(len(dp[:n]))])
 
 func lengthOfLIS(nums []int) int {
-	// return max(initDP(nums))
+	// return max.Int(initDPForLIS(nums)...)
 	return len(initTails(nums))
 }
 
-func initDP(nums []int) []int {
+func initDPForLIS(nums []int) []int {
 	// init dp
 	dp := make([]int, 0, len(nums))
 	for i := 0; i < len(nums); i++ {
@@ -36,19 +36,6 @@ func initDP(nums []int) []int {
 		dp = append(dp, tmpDpRes)
 	}
 	return dp
-}
-
-func max(a []int) int {
-	if len(a) == 0 {
-		return 0
-	}
-	res := a[0]
-	for _, v := range a[1:] {
-		if v > res {
-			res = v
-		}
-	}
-	return res
 }
 
 // * Binary search + DP

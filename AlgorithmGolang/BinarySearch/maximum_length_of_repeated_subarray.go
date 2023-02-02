@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
+
+	"AlgorithmGolang/Utils/max"
+	"AlgorithmGolang/Utils/min"
 )
 
 // ? 给两个整数数组 nums1 和 nums2 ，返回两个数组中公共的、长度最长的子数组的长度。
@@ -12,19 +14,122 @@ import (
 // * 1 <= nums1.length, nums2.length <= 1000
 // * 0 <= nums1[i], nums2[i] <= 100
 
+// * DP
+// * dp[i][j] 为nums1
+// * dpIndex[n]为以long[n]元素为末位的最长公共子数组在short中的index list
+
+func MaximumLengthOfRepeatedSubarray(nums1 []int, nums2 []int) int {
+	return max.Int(initDPForMLORS(nums1, nums2)...)
+}
+
+func initDPForMLORS(nums1 []int, nums2 []int) (dp []int) {
+	return dp
+}
+
+// * 滑动窗口
+// * 较短的数组在较长的数组上面从左到右滑动
+// * 优化版本
+
+func MaximumLengthOfRepeatedSubarray3rdAC(nums1 []int, nums2 []int) int {
+	var res int
+	for i := 0; i < len(nums1); i++ {
+		length := min.Int(len(nums1)-i, len(nums2))
+		res = max.Int(getLongestCommonSliceLength(nums1, nums2, i, 0, length), res)
+	}
+	for i := 0; i < len(nums2); i++ {
+		length := min.Int(len(nums2)-i, len(nums1))
+		res = max.Int(getLongestCommonSliceLength(nums1, nums2, 0, i, length), res)
+	}
+	return res
+}
+
+func getLongestCommonSliceLength(nums1, nums2 []int, addr1, addr2, length int) int {
+	var res, count int
+	for i := 0; i < length; i++ {
+		if nums1[addr1+i] == nums2[addr2+i] {
+			count += 1
+		} else {
+			res = max.Int(res, count)
+			count = 0
+		}
+	}
+	res = max.Int(res, count)
+	return res
+}
+
+// * 滑动窗口
+// * 较短的数组在较长的数组上面从左到右滑动
+// * 每次滑动都计算公共部分，并且返回完全匹配上的数组的最大长度
+// ? 优化项
+
+func MaximumLengthOfRepeatedSubarray2ndAC(nums1 []int, nums2 []int) int {
+	short, long := findShortAndLongArray(nums1, nums2)
+	res := 0
+	for i := 0; i < len(long)+len(short)-1; i++ {
+		// ? what is the definition of i
+		// * pointer to long and tail of short
+		// get intersection left and right index
+		var tmp int
+		if i < len(short)-1 {
+			// * phase 1: short is entering
+			tmp = getLongestSubarrayFromCommonSlice(short[len(short)-1-i:], long[:i+1])
+		} else if i < len(long) {
+			// * phase 2: short is on the long
+			tmp = getLongestSubarrayFromCommonSlice(short, long[i-(len(short)-1):i+1])
+		} else if len(short)-(i-(len(long)-1))+1 > res {
+			// * phase 3: short is exiting
+
+			// i => len(long) + k (len(short)>k>=0)
+			// when i=len(long) + len(short) - 2
+			// shortSlice should be short[0:1]
+			// longSlice should be long[len(long)-1:]
+			tmp = getLongestSubarrayFromCommonSlice(short[:len(short)-(i-(len(long)-1))], long[i-(len(short)-1):])
+
+		}
+		// upd res
+		if tmp > res {
+			res = tmp
+		}
+	}
+	return res
+}
+
+func findShortAndLongArray(nums1 []int, nums2 []int) ([]int, []int) {
+	if len(nums1) > len(nums2) {
+		return nums2, nums1
+	}
+	return nums1, nums2
+}
+
+func getLongestSubarrayFromCommonSlice(short, long []int) int {
+	var res, count int
+	for i := 0; i < len(short); i++ {
+		if short[i] == long[i] {
+			count++
+			if count > res {
+				res = count
+			}
+		} else if len(short)-1-i > res {
+			count = 0
+		} else {
+			break
+		}
+
+	}
+	return res
+}
+
 // * 滑动窗口
 // * nums1的窗口长度一点点增大来搜索nums2
 
-func MaximumLengthOfRepeatedSubarray(nums1 []int, nums2 []int) int {
+func MaximumLengthOfRepeatedSubarray1stAC(nums1 []int, nums2 []int) int {
 	if !haveCommonElements(nums1, nums2) {
 		return 0
 	}
 	slideLength := 1
 	for i := 0; i+slideLength <= len(nums1); i++ {
-		start := time.Now()
 		tmpSlice := nums1[i : i+slideLength]
 		for searchSliceInNums2(tmpSlice, nums2) {
-			fmt.Println("tmpSlice:", tmpSlice)
 			slideLength += 1
 			if i+slideLength > len(nums1) {
 				break
@@ -32,8 +137,6 @@ func MaximumLengthOfRepeatedSubarray(nums1 []int, nums2 []int) int {
 			tmpSlice = nums1[i : i+slideLength]
 
 		}
-		dur := time.Since(start)
-		fmt.Printf("dur is %s, i is %d\n", dur, i)
 	}
 	return slideLength - 1
 }

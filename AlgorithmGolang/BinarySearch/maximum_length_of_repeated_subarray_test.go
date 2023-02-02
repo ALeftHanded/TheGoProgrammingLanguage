@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"AlgorithmGolang/Tools/random"
+	"AlgorithmGolang/Utils/random"
 )
 
 func Test_genAllSubArrayList(t *testing.T) {
@@ -46,7 +46,7 @@ func Test_genAllSubArrayList(t *testing.T) {
 func TestMaximumLengthOfRepeatedSubarray(t *testing.T) {
 	rand.Seed(time.Now().UnixNano())
 	randomArray1 := random.GenRandomNums(40, 50, 0, 4)
-	randomArray2 := random.GenRandomNums(50, 70, 5, 7)
+	randomArray2 := random.GenRandomNums(50000, 70000, 5, 7)
 
 	type args struct {
 		nums1 []int
@@ -69,8 +69,9 @@ func TestMaximumLengthOfRepeatedSubarray(t *testing.T) {
 			name: "normal test",
 			args: args{
 				nums1: []int{0, 1, 2, 0},
-				nums2: []int{0, 1, 2, 0, 2},
+				nums2: []int{0, 1, 2, 0, 2, 4, 5, 6, 7, 8, 98, 9, 3, 3, 4, 5, 45, 63, 4, 67},
 			},
+			want: 4,
 		},
 		{
 			name: "tle test",
@@ -105,10 +106,20 @@ func TestMaximumLengthOfRepeatedSubarray(t *testing.T) {
 			//dur1 := time.Since(start1)
 			//fmt.Println("BruceForce duration: ", dur1)
 
-			start2 := time.Now()
+			start := time.Now()
 			res := MaximumLengthOfRepeatedSubarray(tt.args.nums1, tt.args.nums2)
-			dur2 := time.Since(start2)
-			fmt.Println("Actually function duration: ", dur2)
+			dur := time.Since(start)
+			fmt.Println("MaximumLengthOfRepeatedSubarray|Actually function duration: ", dur)
+
+			start = time.Now()
+			res = MaximumLengthOfRepeatedSubarray2ndAC(tt.args.nums1, tt.args.nums2)
+			dur = time.Since(start)
+			fmt.Println("MaximumLengthOfRepeatedSubarray|Actually function duration: ", dur)
+
+			//start = time.Now()
+			//res = MaximumLengthOfRepeatedSubarray1stAC(tt.args.nums1, tt.args.nums2)
+			//dur = time.Since(start)
+			//fmt.Println("MaximumLengthOfRepeatedSubarray1stAC|Actually function duration: ", dur)
 
 			assert.Equalf(t, tt.want, res, "MaximumLengthOfRepeatedSubarray(%v, %v)", tt.args.nums1, tt.args.nums2)
 		})
