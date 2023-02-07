@@ -100,11 +100,11 @@ def binary_search(array) -> int:
 
 1. - [x] [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
 
-2. - [ ] [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/)
+2. - [x] [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/)
 
 3. - [ ] [718. 最长重复子数组](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/)
 
-4. - [ ] [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+4. - [x] [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 5. - [x] [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
 
