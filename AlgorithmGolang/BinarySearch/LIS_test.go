@@ -48,7 +48,7 @@ func Test_lengthOfLIS(t *testing.T) {
 				nums: randNums,
 			},
 			// ! deliver the standard answer.
-			want: max.Int(initDP(randNums)...),
+			want: max.Int(initDPForLIS(randNums)...),
 		},
 	}
 	for _, tt := range tests {

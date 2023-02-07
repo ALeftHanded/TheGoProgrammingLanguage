@@ -2,7 +2,6 @@ package BinarySearch
 
 import (
 	"fmt"
-	"math/rand"
 	"testing"
 	"time"
 
@@ -44,7 +43,7 @@ func Test_genAllSubArrayList(t *testing.T) {
 }
 
 func TestMaximumLengthOfRepeatedSubarray(t *testing.T) {
-	rand.Seed(time.Now().UnixNano())
+
 	randomArray1 := random.GenRandomNums(40, 50, 0, 4)
 	randomArray2 := random.GenRandomNums(50000, 70000, 5, 7)
 
