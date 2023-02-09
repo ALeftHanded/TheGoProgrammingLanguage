@@ -108,7 +108,7 @@ def binary_search(array) -> int:
 
 5. - [x] [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
 
-6. - [ ] [162. 寻找峰值](https://leetcode.cn/problems/find-peak-element/)
+6. - [x] [162. 寻找峰值](https://leetcode.cn/problems/find-peak-element/)
 
 7. - [ ] [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
 
