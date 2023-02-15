@@ -23,8 +23,57 @@ func TestSearchMatrixII(t *testing.T) {
 				matrix: [][]int{
 					{1, 7, 8},
 					{2, 9, 10},
+					{3, 11, 12},
 				},
 				target: 2,
+			},
+			want: true,
+		},
+		{
+			name: "edge case 1",
+			args: args{
+				matrix: [][]int{
+					{1, 7, 8},
+					{2, 9, 10},
+					{3, 11, 12},
+				},
+				target: 1,
+			},
+			want: true,
+		},
+		{
+			name: "edge case 2",
+			args: args{
+				matrix: [][]int{
+					{1, 7, 8},
+					{2, 9, 10},
+					{3, 11, 12},
+				},
+				target: 3,
+			},
+			want: true,
+		},
+		{
+			name: "edge case 3",
+			args: args{
+				matrix: [][]int{
+					{1, 7, 8},
+					{2, 9, 10},
+					{3, 11, 12},
+				},
+				target: 8,
+			},
+			want: true,
+		},
+		{
+			name: "edge case 4",
+			args: args{
+				matrix: [][]int{
+					{1, 7, 8},
+					{2, 9, 10},
+					{3, 11, 12},
+				},
+				target: 12,
 			},
 			want: true,
 		},
