@@ -19,23 +19,19 @@ func SearchMatrixII(matrix [][]int, target int) bool {
 	}
 	rowLen, colLen := len(matrix), len(matrix[0])
 	left, right := 0, rowLen*colLen-1
-	for left <= right {
-		mid := left + (right-left)>>1
-		midRow, midCol := mid/colLen, mid%colLen
-		if matrix[midRow][midCol] == target {
+	mid := left + (right-left)>>1
+	midRow, midCol := mid/colLen, mid%colLen
+	if matrix[midRow][midCol] == target {
+		return true
+	} else if matrix[midRow][midCol] < target {
+		if SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenLowerMatrixForBiggerTarget), target) ||
+			SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenUpperRightMatrixForBiggerTarget), target) {
 			return true
-		} else if matrix[midRow][midCol] < target {
-			if SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenLowerMatrixForBiggerTarget), target) ||
-				SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenUpperRightMatrixForBiggerTarget), target) {
-				return true
-			}
-			return false
-		} else {
-			if SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenUpperMatrixForSmallerTarget), target) ||
-				SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenLowerLeftMatrixForSmallerTarget), target) {
-				return true
-			}
-			return false
+		}
+	} else {
+		if SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenUpperMatrixForSmallerTarget), target) ||
+			SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenLowerLeftMatrixForSmallerTarget), target) {
+			return true
 		}
 	}
 	return false
