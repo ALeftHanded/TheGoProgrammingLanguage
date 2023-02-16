@@ -10,10 +10,28 @@ package BinarySearch
 // * -10^9<= matrix[i][j] <= 10^9
 // * -10^9<= target <= 10^9
 
+// * 保持从右上角搜索至左下角
+// * 如果target大于当前值，则代表target不会出现在该行，那么删除该行，新的矩阵中的右上角为当前值下移一位
+// * 如果target小于当前值，则代表target不会出现在该列，那么删除该列，新的矩阵中的右上角为当前值左移一位
+
+func SearchMatrixII(matrix [][]int, target int) bool {
+	i, j := 0, len(matrix[0])-1
+	for i < len(matrix) && j >= 0 {
+		if matrix[i][j] == target {
+			return true
+		} else if matrix[i][j] < target {
+			i++
+		} else {
+			j--
+		}
+	}
+	return false
+}
+
 // * 如果大于target，则左上肯定不在搜索范围，在右上，和下部（不包含mid所在行）使用递归搜索
 // * 如果小于target，则搜索范围，在右上，和下部使用递归搜索
 
-func SearchMatrixII(matrix [][]int, target int) bool {
+func SearchMatrixII1stAC(matrix [][]int, target int) bool {
 	if matrix == nil {
 		return false
 	}
@@ -24,13 +42,13 @@ func SearchMatrixII(matrix [][]int, target int) bool {
 	if matrix[midRow][midCol] == target {
 		return true
 	} else if matrix[midRow][midCol] < target {
-		if SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenLowerMatrixForBiggerTarget), target) ||
-			SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenUpperRightMatrixForBiggerTarget), target) {
+		if SearchMatrixII1stAC(genSubMatrix(matrix, midRow, midCol, GenLowerMatrixForBiggerTarget), target) ||
+			SearchMatrixII1stAC(genSubMatrix(matrix, midRow, midCol, GenUpperRightMatrixForBiggerTarget), target) {
 			return true
 		}
 	} else {
-		if SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenUpperMatrixForSmallerTarget), target) ||
-			SearchMatrixII(genSubMatrix(matrix, midRow, midCol, GenLowerLeftMatrixForSmallerTarget), target) {
+		if SearchMatrixII1stAC(genSubMatrix(matrix, midRow, midCol, GenUpperMatrixForSmallerTarget), target) ||
+			SearchMatrixII1stAC(genSubMatrix(matrix, midRow, midCol, GenLowerLeftMatrixForSmallerTarget), target) {
 			return true
 		}
 	}
