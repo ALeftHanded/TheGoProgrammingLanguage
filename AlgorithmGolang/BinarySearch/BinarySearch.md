@@ -114,7 +114,7 @@ def binary_search(array) -> int:
 
 8. - [ ] [209. 长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/)
 
-9. - [ ] [50. Pow(x, n)](https://leetcode.cn/problems/powx-n/)
+9. - [x] [50. Pow(x, n)](https://leetcode.cn/problems/powx-n/)
 
 10. - [x] [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix/)
 

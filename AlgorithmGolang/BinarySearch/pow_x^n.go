@@ -9,28 +9,16 @@ package BinarySearch
 
 func PowXN(x float64, n int) float64 {
 	// ? exclude 0^0
-	if n == 0 {
-		return 1
-	}
 	if n < 0 {
 		return 1 / PowXN(x, -n)
 	}
 	var res, tmp float64
-	binN := BinInt(n)
 	res, tmp = 1, x
-	for i := 0; i < len(binN); i++ {
-		if binN[i] {
+	for n > 0 {
+		if n%2 == 1 {
 			res *= tmp
 		}
 		tmp *= tmp
-	}
-	return res
-}
-
-func BinInt(n int) []bool {
-	res := make([]bool, 0, 32)
-	for n > 0 {
-		res = append(res, n%2 == 1)
 		n >>= 1
 	}
 	return res
