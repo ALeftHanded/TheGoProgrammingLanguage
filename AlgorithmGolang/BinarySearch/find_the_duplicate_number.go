@@ -12,3 +12,15 @@ package BinarySearch
 func FindTheDuplicateNumber(nums []int) int {
 	return -1
 }
+
+func FindTheDuplicateNumberMap(nums []int) int {
+	seen := make(map[int]bool)
+	for _, num := range nums {
+		if !seen[num] {
+			seen[num] = true
+		} else {
+			return num
+		}
+	}
+	return -1
+}

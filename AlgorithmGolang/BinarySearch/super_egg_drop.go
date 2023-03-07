@@ -10,6 +10,9 @@ package BinarySearch
 // * 1 <= k <= 100
 // * 1 <= n <= 10^4
 
+// * 感觉通用的方案是log(n)，但是存在如下清形
+
 func SuperEggDrop(k int, n int) int {
+
 	return -1
 }

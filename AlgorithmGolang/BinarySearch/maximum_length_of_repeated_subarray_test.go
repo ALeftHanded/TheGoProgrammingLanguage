@@ -1,12 +1,11 @@
 package BinarySearch
 
 import (
-	"fmt"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 
+	"AlgorithmGolang/Utils/measureUtil"
 	"AlgorithmGolang/Utils/random"
 )
 
@@ -100,27 +99,12 @@ func TestMaximumLengthOfRepeatedSubarray(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			//start1 := time.Now()
-			//tt.want = BruceForceMLORS(tt.args.nums1, tt.args.nums2)
-			//dur1 := time.Since(start1)
-			//fmt.Println("BruceForce duration: ", dur1)
+			//res, _ := measureUtil.ExecutionTime(BruceForceMLORS, tt.args.nums1, tt.args.nums2)
+			res, _ := measureUtil.ExecutionTime(MaximumLengthOfRepeatedSubarray, tt.args.nums1, tt.args.nums2)
+			res, _ = measureUtil.ExecutionTime(MaximumLengthOfRepeatedSubarray2ndAC, tt.args.nums1, tt.args.nums2)
+			//res, _ = measureUtil.ExecutionTime(MaximumLengthOfRepeatedSubarray1stAC, tt.args.nums1, tt.args.nums2)
 
-			start := time.Now()
-			res := MaximumLengthOfRepeatedSubarray(tt.args.nums1, tt.args.nums2)
-			dur := time.Since(start)
-			fmt.Println("MaximumLengthOfRepeatedSubarray|Actually function duration: ", dur)
-
-			start = time.Now()
-			res = MaximumLengthOfRepeatedSubarray2ndAC(tt.args.nums1, tt.args.nums2)
-			dur = time.Since(start)
-			fmt.Println("MaximumLengthOfRepeatedSubarray|Actually function duration: ", dur)
-
-			//start = time.Now()
-			//res = MaximumLengthOfRepeatedSubarray1stAC(tt.args.nums1, tt.args.nums2)
-			//dur = time.Since(start)
-			//fmt.Println("MaximumLengthOfRepeatedSubarray1stAC|Actually function duration: ", dur)
-
-			assert.Equalf(t, tt.want, res, "MaximumLengthOfRepeatedSubarray(%v, %v)", tt.args.nums1, tt.args.nums2)
+			assert.Equalf(t, tt.want, res[0], "MaximumLengthOfRepeatedSubarray(%v, %v)", tt.args.nums1, tt.args.nums2)
 		})
 	}
 }

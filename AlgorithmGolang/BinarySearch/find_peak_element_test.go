@@ -1,12 +1,11 @@
 package BinarySearch
 
 import (
-	"fmt"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 
+	"AlgorithmGolang/Utils/measureUtil"
 	"AlgorithmGolang/Utils/random"
 )
 
@@ -53,14 +52,9 @@ func TestFindPeakElement(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-
-		start := time.Now()
-		res := FindPeakElement(tt.args.nums)
-		dur := time.Since(start)
-		fmt.Println("FindPeakElement|Actually function duration: ", dur)
-
+		res, _ := measureUtil.ExecutionTime(FindPeakElement, tt.args.nums)
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equalf(t, tt.want, res, "FindPeakElement(%v)", tt.args.nums)
+			assert.Equalf(t, tt.want, res[0], "FindPeakElement(%v)", tt.args.nums)
 		})
 	}
 }

@@ -1,11 +1,11 @@
 package BinarySearch
 
 import (
-	"fmt"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
+
+	"AlgorithmGolang/Utils/measureUtil"
 )
 
 func TestSearchRange(t *testing.T) {
@@ -25,7 +25,7 @@ func TestSearchRange(t *testing.T) {
 				nums:   []int{1, 1, 1, 1, 1, 2, 3, 4, 4, 4, 4, 4, 4, 6, 7, 7, 7, 7},
 				target: 6,
 			},
-			want: []int{0, 4},
+			want: []int{13, 13},
 		},
 		{
 			name: "error case",
@@ -39,12 +39,8 @@ func TestSearchRange(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 
-			start := time.Now()
-			res := SearchRange(tt.args.nums, tt.args.target)
-			dur := time.Since(start)
-			fmt.Println("SearchRange|Actually function duration: ", dur)
-
-			assert.Equalf(t, tt.want, res, "SearchRange(%v, %v)", tt.args.nums, tt.args.target)
+			res, _ := measureUtil.ExecutionTime(SearchRange, tt.args.nums, tt.args.target)
+			assert.Equalf(t, tt.want, res[0], "SearchRange(%v, %v)", tt.args.nums, tt.args.target)
 		})
 	}
 }
