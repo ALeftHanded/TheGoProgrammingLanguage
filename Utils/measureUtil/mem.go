@@ -8,7 +8,7 @@ import (
 func MemoryCost(fn interface{}, args ...interface{}) ([]interface{}, uint64) {
 	name := getFunctionName(fn)
 
-	callFunc, inputs := callPrepare(name, args)
+	callFunc, inputs := callPrepare(fn, args)
 
 	// Get the current memory usage
 	var memStats runtime.MemStats
@@ -22,7 +22,7 @@ func MemoryCost(fn interface{}, args ...interface{}) ([]interface{}, uint64) {
 	runtime.ReadMemStats(&memStats)
 	memEnd := memStats.TotalAlloc
 	totalAlloc := memEnd - memStart
-	fmt.Printf("Function: %s Total Alloc: %d", name, totalAlloc)
+	fmt.Printf("Function: %s Total Alloc: %d\n", name, totalAlloc)
 
 	return convertRet(result), totalAlloc
 }

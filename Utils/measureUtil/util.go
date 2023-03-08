@@ -6,16 +6,14 @@ import (
 	"strings"
 )
 
+// getFunctionName Get the name of the function
 func getFunctionName(fn interface{}) string {
-	// Get the name of the function
 	pc := reflect.ValueOf(fn).Pointer()
-	ptr := runtime.FuncForPC(pc)
-	name := strings.Split(ptr.Name(), ".")[1]
-	return name
+	return strings.Split(runtime.FuncForPC(pc).Name(), ".")[1]
 }
 
+// convertRet Convert the result slice to a slice of interfaces{}
 func convertRet(funcRes []reflect.Value) (ret []interface{}) {
-	// Convert the result slice to a slice of interfaces{}
 	for _, r := range funcRes {
 		ret = append(ret, r.Interface())
 	}
