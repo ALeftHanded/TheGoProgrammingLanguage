@@ -158,3 +158,8 @@ ROUTINE ======================== AlgorithmGolang/GC/inefficient_cases/buffer_wri
 .          .     18:	}
 .          .     19:}
 ```
+
+### 结论
+
+In your specific case, the difference in memory allocation should be apparent by the use of `sync.Pool` in the `processDataOptimized` function. Using `sync.Pool` allows the function to reuse `bytes.Buffer` instances instead of allocating new ones for each call, reducing memory allocations and pressure on the garbage collector.
+
