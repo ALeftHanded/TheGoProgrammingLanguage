@@ -60,6 +60,7 @@ func NumberOfDistinctIslandsOp(grid [][]byte) int {
 }
 
 func dfsForNumberOfDistinctIslandsOp(grid [][]byte, i, j, m, n int, shape *[][]int) {
+	// when i, j is out of range or grid[i][j] == '0', return
 	if i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == '0' {
 		return
 	}

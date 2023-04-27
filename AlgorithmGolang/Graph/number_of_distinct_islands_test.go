@@ -174,21 +174,21 @@ func BenchmarkNumberOfDistinctIslandsWithCustomHash(b *testing.B) {
 		},
 	}
 	b.ResetTimer()
-	//b.Run("hashShape", func(b *testing.B) {
-	//	for i := 0; i < b.N; i++ {
-	//		for _, tt := range tests {
-	//			_ = NumberOfDistinctIslandsWithCustomHash(tt.args.grid, hashShape)
-	//		}
-	//	}
-	//})
-	//b.Run("hashShapeOp", func(b *testing.B) {
-	//
-	//	for i := 0; i < b.N; i++ {
-	//		for _, tt := range tests {
-	//			_ = NumberOfDistinctIslandsWithCustomHash(tt.args.grid, hashShapeOp)
-	//		}
-	//	}
-	//})
+	b.Run("hashShape", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			for _, tt := range tests {
+				_ = NumberOfDistinctIslandsWithCustomHash(tt.args.grid, hashShape)
+			}
+		}
+	})
+	b.Run("hashShapeOp", func(b *testing.B) {
+
+		for i := 0; i < b.N; i++ {
+			for _, tt := range tests {
+				_ = NumberOfDistinctIslandsWithCustomHash(tt.args.grid, hashShapeOp)
+			}
+		}
+	})
 	b.Run("WithHashShapeOp", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			runTestCases(tests, NumberOfDistinctIslands)
