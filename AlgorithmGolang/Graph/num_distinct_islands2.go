@@ -144,3 +144,79 @@ func sortShape(shape [][]int) {
 		return shape[i][0] < shape[j][0]
 	})
 }
+
+func NumberOfDistinctIslands2Op(grid [][]byte) int {
+	hash := func(shape [][2]int) string {
+		encode := func(shape [][2]int) string {
+			x, y := shape[0][0], shape[0][1]
+			coords := make([]string, len(shape))
+
+			for i, point := range shape {
+				coords[i] = strconv.Itoa(point[0]-x) + ":" + strconv.Itoa(point[1]-y)
+			}
+
+			return strings.Join(coords, "")
+		}
+
+		var shapes [][][2]int
+		for _, t := range [][2]int{{1, 1}, {1, -1}, {-1, 1}, {-1, -1}} {
+			var transformed [][2]int
+			for _, point := range shape {
+				transformed = append(transformed, [2]int{t[0] * point[0], t[1] * point[1]})
+			}
+			shapes = append(shapes, transformed)
+		}
+
+		for _, s := range shapes {
+			var reflected [][2]int
+			for _, point := range s {
+				reflected = append(reflected, [2]int{point[1], point[0]})
+			}
+			shapes = append(shapes, reflected)
+		}
+
+		minStr := ""
+		for _, s := range shapes {
+			sort.Slice(s, func(i, j int) bool {
+				return s[i][0] < s[j][0] || (s[i][0] == s[j][0] && s[i][1] < s[j][1])
+			})
+			encoded := encode(s)
+			if minStr == "" || encoded < minStr {
+				minStr = encoded
+			}
+		}
+
+		return minStr
+	}
+
+	rows := len(grid)
+	cols := len(grid[0])
+
+	var dfs func(i, j int) [][2]int
+	dfs = func(i, j int) [][2]int {
+		if i < 0 || j < 0 || i >= rows || j >= cols || grid[i][j] == '0' {
+			return nil
+		}
+
+		grid[i][j] = '0'
+		shape := [][2]int{{i, j}}
+
+		for _, d := range [][2]int{{0, -1}, {0, 1}, {-1, 0}, {1, 0}} {
+			shape = append(shape, dfs(i+d[0], j+d[1])...)
+		}
+
+		return shape
+	}
+
+	islands := make(map[string]bool)
+
+	for i, row := range grid {
+		for j, num := range row {
+			if num == '1' {
+				islands[hash(dfs(i, j))] = true
+			}
+		}
+	}
+
+	return len(islands)
+}
