@@ -117,7 +117,7 @@ const RegexpGuidePurchasePrice = `^((\d+\.{1}\d{1,2})|(\d+))$`
 
 <span style="color:yellow">TODO</span>
 
-#### 9. json unmarshall cannot unmarshall nil value
+#### 9. json unmarshal cannot unmarshall nil value
 
 wrong code template
 
@@ -148,3 +148,6 @@ func (d *decodeState) unmarshal(v interface{}) error {
     return d.savedError
 }
 ```
+
+#### 10. json marshal tips
+- if a pointer field is not nil, the value it points to will be encoded in the JSON. When unmarshaling, if a pointer field has a value in the JSON, it will be decoded and a new pointer will be created pointing to the value.
