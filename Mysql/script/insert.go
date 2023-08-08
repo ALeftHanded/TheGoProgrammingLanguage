@@ -1,6 +1,7 @@
 package script
 
 import (
+	"log"
 	"sync"
 
 	"gorm.io/gorm"
@@ -16,39 +17,54 @@ func genRandomUserData(nameLen int) User {
 	}
 }
 
-func InsertRandomUserData(db *gorm.DB, count int) {
+func generateRandomUserDataList(count int) []User {
+	users := make([]User, 0, count)
 	for i := 0; i < count; i++ {
-		user := genRandomUserData(10)
-		db.Create(&user)
+		users = append(users, genRandomUserData(10))
 	}
+	return users
 }
 
-func BatchInsertRandomUserData(db *gorm.DB, count, batchSize int) {
-	for i := 0; i < count/batchSize; i++ {
-		users := make([]User, 0, batchSize)
-		for j := 0; j < batchSize; j++ {
-			users = append(users, genRandomUserData(10))
+func InsertRandomUserData(db *gorm.DB, users []User) {
+	for _, user := range users {
+		err := db.Create(&user).Error
+		if err != nil {
+			log.Println("Error inserting error, ", err.Error())
 		}
-		db.CreateInBatches(&users, batchSize)
 	}
 }
 
-func ConcurrentInsertRandomUserData(db *gorm.DB, count, concurrency int) {
+func BatchInsertRandomUserData(db *gorm.DB, users []User, batchSize int) {
+	for i := 0; i < len(users)/batchSize; i++ {
+		tmpUsers := users[i*batchSize : (i+1)*batchSize]
+		err := db.CreateInBatches(&tmpUsers, batchSize).Error
+		if err != nil {
+			log.Println("Error inserting error, ", err.Error())
+		}
+	}
+}
+
+func ConcurrentInsertRandomUserData(db *gorm.DB, users []User, goroutineCount int) {
 	var wg sync.WaitGroup
-	wg.Add(concurrency)
+	wg.Add(goroutineCount)
 
-	chunkSize := count / concurrency
+	chunkSize := len(users) / goroutineCount
+	for i := 0; i < goroutineCount; i++ {
+		start := i * chunkSize
+		end := (i + 1) * chunkSize
+		if i == goroutineCount-1 {
+			end = len(users) // Handle the remainder
+		}
 
-	for i := 0; i < concurrency; i++ {
-		go func() {
+		go func(start, end int) {
 			defer wg.Done()
-
-			for j := 0; j < chunkSize; j++ {
-				user := genRandomUserData(10)
-				db.Create(&user)
-			}
-		}()
+			BatchInsertRandomUserData(db, users[start:end], end-start)
+		}(start, end)
 	}
 
 	wg.Wait()
+}
+
+func truncateUserTable(db *gorm.DB) {
+	db.Exec("truncate table user_tab")
 }

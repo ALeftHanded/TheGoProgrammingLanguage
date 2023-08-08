@@ -6,7 +6,7 @@ import (
 	"AlgorithmGolang/Utils/measureUtil"
 )
 
-func TestInsertRandomUserData(t *testing.T) {
+func TestInsertRandomUserDataSpeed(t *testing.T) {
 	db, err := InitMySqlConnection()
 	if err != nil {
 		panic(err)
@@ -33,9 +33,15 @@ func TestInsertRandomUserData(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			measureUtil.ExecutionTime(BatchInsertRandomUserData, db, tt.args.count, 100)
-			measureUtil.ExecutionTime(InsertRandomUserData, db, tt.args.count)
-			measureUtil.ExecutionTime(ConcurrentInsertRandomUserData, db, tt.args.count, 100)
+			users := generateRandomUserDataList(tt.args.count)
+			const batchSize = 50
+			const goroutineCount = 20
+			measureUtil.ExecutionTime(InsertRandomUserData, db, users)
+			truncateUserTable(db)
+			measureUtil.ExecutionTime(BatchInsertRandomUserData, db, users, batchSize)
+			truncateUserTable(db)
+			measureUtil.ExecutionTime(ConcurrentInsertRandomUserData, db, users, goroutineCount)
+			truncateUserTable(db)
 		})
 	}
 }
