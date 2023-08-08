@@ -18,7 +18,6 @@ func TestInsertRandomUserData(t *testing.T) {
 		name string
 		args args
 	}{
-		// TODO: Add test cases.
 		{
 			name: "insert 10 random user data",
 			args: args{
@@ -26,17 +25,17 @@ func TestInsertRandomUserData(t *testing.T) {
 			},
 		},
 		{
-			name: "insert 100 random user data",
+			name: "insert 1000 random user data",
 			args: args{
-				count: 100,
+				count: 1000,
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			measureUtil.ExecutionTime(BatchInsertRandomUserData, db, tt.args.count, 1000)
+			measureUtil.ExecutionTime(BatchInsertRandomUserData, db, tt.args.count, 100)
 			measureUtil.ExecutionTime(InsertRandomUserData, db, tt.args.count)
-
+			measureUtil.ExecutionTime(ConcurrentInsertRandomUserData, db, tt.args.count, 100)
 		})
 	}
 }
