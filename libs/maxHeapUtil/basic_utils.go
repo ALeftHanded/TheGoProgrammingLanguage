@@ -1,5 +1,7 @@
 package maxHeapUtil
 
+import "math"
+
 func Add(maxHeap *MaxHeap, num int) *MaxHeap {
 	if maxHeap == nil {
 		return &MaxHeap{Val: num}
@@ -99,4 +101,41 @@ func (maxh *MaxHeap) ValidCheck() bool {
 	// ! Validate left subtree, and right subtree if it exists
 	// * nil do not get ValidCheck method, which will cause panic
 	return maxh.Left.ValidCheck() && (maxh.Right == nil || maxh.Right.ValidCheck())
+}
+
+// ToOrderedArray convert to ordered array
+func (maxh *MaxHeap) ToOrderedArray() []int {
+	var res []int
+	var val int
+	for maxh.Val != math.MinInt {
+		val = PopRootAndSwap(maxh)
+		res = append(res, val)
+	}
+	return res
+}
+
+// PopRootAndSwap root will never be nil
+func PopRootAndSwap(root *MaxHeap) int {
+	var res int
+	res = root.Val
+	root.Val = math.MinInt
+	swapMinInt(root)
+	return res
+}
+
+func swapMinInt(root *MaxHeap) {
+	if root.Left != nil {
+		if root.Right == nil {
+			root.Val, root.Left.Val = root.Left.Val, root.Val
+			swapMinInt(root.Left)
+		} else {
+			if root.Right.Val > root.Left.Val {
+				root.Val, root.Right.Val = root.Right.Val, root.Val
+				swapMinInt(root.Right)
+			} else {
+				root.Val, root.Left.Val = root.Left.Val, root.Val
+				swapMinInt(root.Left)
+			}
+		}
+	}
 }

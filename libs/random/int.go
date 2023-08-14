@@ -10,7 +10,13 @@ func GenRandomNums(minLen, maxLen, minElement, maxElement int) []int {
 	rand.Seed(time.Now().UnixNano())
 
 	var res []int
-	ranLen := rand.Intn(maxLen-minLen) + minLen
+
+	var ranLen int
+	if maxLen > minLen {
+		ranLen = rand.Intn(maxLen-minLen) + minLen
+	} else {
+		ranLen = minLen
+	}
 	for i := 0; i < ranLen; i++ {
 		randNum := rand.Intn(maxElement-minElement) + minElement
 		res = append(res, randNum)

@@ -24,7 +24,7 @@ func HeapifyInit(arr []int) *MaxHeap {
 	lastNonLeafNodeIndex := len(arr)/2 - 1
 	// 2. Heapify the array using a bottom-up approach
 	for i := lastNonLeafNodeIndex; i >= 0; i-- {
-		checkAndSwap(arr, i)
+		CheckAndSwap(arr, i)
 	}
 	// 3. Construct MaxHeap from the heapified array
 	var nodeList []*MaxHeap
@@ -42,23 +42,29 @@ func HeapifyInit(arr []int) *MaxHeap {
 	return nodeList[0]
 }
 
-func checkAndSwap(arr []int, index int) {
+func CheckAndSwap(arr []int, index int) {
 	lastNonLeafNodeIndex := len(arr)/2 - 1
 	if index > lastNonLeafNodeIndex {
 		return
 	}
+	largestIndex := GetLargestIndex(arr, index)
+	if largestIndex != index {
+		arr[index], arr[largestIndex] = arr[largestIndex], arr[index]
+		CheckAndSwap(arr, largestIndex)
+	}
+}
+
+func GetLargestIndex(arr []int, index int) int {
 	// heapify the array
 	// ? how to find left and right children index and why they can be found
 	// * if your node index is i, the i nodes before you all have two children
 	// * so there are 2i nodes before your children, and your children index should be 2i+1 and 2i+2
-	leftNodeIndex := 2*index + 1
-	rightNodeIndex := 2*index + 2
-	if arr[leftNodeIndex] > arr[index] {
-		arr[leftNodeIndex], arr[index] = arr[index], arr[leftNodeIndex]
-		checkAndSwap(arr, leftNodeIndex)
+	largestIndex, leftIndex, rightIndex := index, index*2+1, index*2+2
+	if arr[leftIndex] > arr[index] {
+		largestIndex = leftIndex
 	}
-	if rightNodeIndex < len(arr) && arr[rightNodeIndex] > arr[index] {
-		arr[rightNodeIndex], arr[index] = arr[index], arr[rightNodeIndex]
-		checkAndSwap(arr, rightNodeIndex)
+	if rightIndex < len(arr) && arr[rightIndex] > arr[largestIndex] {
+		largestIndex = rightIndex
 	}
+	return largestIndex
 }
