@@ -71,7 +71,7 @@ func BinarySearch(arr []int, n int) int {
 python
 
 ```python
-# search_space: could be an array, a range, etc. Usually it's sorted in ascending order.
+# search_space: could be an arrayUtil, a range, etc. Usually it's sorted in ascending order.
 # Minimize k , s.t. condition(k) is True
 def binary_search(array) -> int:
     def condition(value) -> bool:

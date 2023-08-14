@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"AlgorithmGolang/Utils/measureUtil"
-	"AlgorithmGolang/Utils/random"
+	"AlgorithmGolang/libs/measureUtil"
+	"AlgorithmGolang/libs/random"
 )
 
 func TestFindPeakElement(t *testing.T) {

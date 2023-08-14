@@ -7,9 +7,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	arrayUtil "AlgorithmGolang/Utils/array"
-	"AlgorithmGolang/Utils/measureUtil"
-	"AlgorithmGolang/Utils/random"
+	arrayUtil "AlgorithmGolang/libs/arrayUtil"
+	"AlgorithmGolang/libs/measureUtil"
+	"AlgorithmGolang/libs/random"
 )
 
 func TestIntersectionOfTwoArraysBruteForce(t *testing.T) {

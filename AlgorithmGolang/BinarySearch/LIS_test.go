@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"AlgorithmGolang/Utils/max"
-	"AlgorithmGolang/Utils/random"
+	"AlgorithmGolang/libs/arrayUtil"
+	"AlgorithmGolang/libs/random"
 )
 
 func Test_lengthOfLIS(t *testing.T) {
@@ -20,7 +20,6 @@ func Test_lengthOfLIS(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal ascending list test",
 			args: args{
@@ -48,7 +47,7 @@ func Test_lengthOfLIS(t *testing.T) {
 				nums: randNums,
 			},
 			// ! deliver the standard answer.
-			want: max.Int(initDPForLIS(randNums)...),
+			want: arrayUtil.MaxInt(initDPForLIS(randNums)...),
 		},
 	}
 	for _, tt := range tests {

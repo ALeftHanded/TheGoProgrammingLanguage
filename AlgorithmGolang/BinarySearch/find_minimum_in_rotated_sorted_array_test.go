@@ -15,7 +15,6 @@ func TestFindMinimumInRotatedSortedArray(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
 		{
 			name: "normal test even elements",
 			args: args{
@@ -38,7 +37,7 @@ func TestFindMinimumInRotatedSortedArray(t *testing.T) {
 			want: 1,
 		},
 		{
-			name: "test ascending array",
+			name: "test ascending arrayUtil",
 			args: args{
 				nums: []int{1, 2, 3, 4, 5},
 			},
@@ -46,7 +45,7 @@ func TestFindMinimumInRotatedSortedArray(t *testing.T) {
 		},
 		{
 			// ! 需要cover这个用例
-			name: "test two elements and descending array",
+			name: "test two elements and descending arrayUtil",
 			args: args{
 				nums: []int{2, 1},
 			},

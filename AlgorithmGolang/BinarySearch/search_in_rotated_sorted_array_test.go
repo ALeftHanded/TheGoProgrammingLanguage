@@ -1,8 +1,9 @@
 package BinarySearch
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSearchInRotatedSortedArray(t *testing.T) {
@@ -40,7 +41,7 @@ func TestSearchInRotatedSortedArray(t *testing.T) {
 			want: 0,
 		},
 		{
-			name: "test ascending array",
+			name: "test ascending arrayUtil",
 			args: args{
 				nums:   []int{1, 2, 3, 4, 5},
 				target: 2,
@@ -49,7 +50,7 @@ func TestSearchInRotatedSortedArray(t *testing.T) {
 		},
 		{
 			// ! 需要cover这个用例
-			name: "test two elements and descending array",
+			name: "test two elements and descending arrayUtil",
 			args: args{
 				nums:   []int{2, 1},
 				target: 1,

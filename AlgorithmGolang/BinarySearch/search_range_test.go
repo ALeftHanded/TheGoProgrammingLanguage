@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"AlgorithmGolang/Utils/measureUtil"
+	"AlgorithmGolang/libs/measureUtil"
 )
 
 func TestSearchRange(t *testing.T) {

@@ -1,7 +1,7 @@
 package BinarySearch
 
 // BinarySearch Template for Binary Search
-// Find index of number from sorted array, return -1 if the number we find is not exist
+// Find index of number from sorted arrayUtil, return -1 if the number we find is not exist
 // todo recite it
 func BinarySearch(arr []int, n int) int {
 	// ? How to initialize the boundary variable `left` and `right`?

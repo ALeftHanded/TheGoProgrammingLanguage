@@ -5,8 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"AlgorithmGolang/Utils/max"
-	"AlgorithmGolang/Utils/min"
+	"AlgorithmGolang/libs/arrayUtil"
 )
 
 // ? 给两个整数数组 nums1 和 nums2 ，返回两个数组中公共的、长度最长的子数组的长度。
@@ -19,7 +18,7 @@ import (
 // * dpIndex[n]为以long[n]元素为末位的最长公共子数组在short中的index list
 
 func MaximumLengthOfRepeatedSubarray(nums1 []int, nums2 []int) int {
-	return max.Int(initDPForMLORS(nums1, nums2)...)
+	return arrayUtil.MaxInt(initDPForMLORS(nums1, nums2)...)
 }
 
 func initDPForMLORS(nums1 []int, nums2 []int) (dp []int) {
@@ -33,12 +32,12 @@ func initDPForMLORS(nums1 []int, nums2 []int) (dp []int) {
 func MaximumLengthOfRepeatedSubarray3rdAC(nums1 []int, nums2 []int) int {
 	var res int
 	for i := 0; i < len(nums1); i++ {
-		length := min.Int(len(nums1)-i, len(nums2))
-		res = max.Int(getLongestCommonSliceLength(nums1, nums2, i, 0, length), res)
+		length := arrayUtil.MinInt(len(nums1)-i, len(nums2))
+		res = arrayUtil.MaxInt(getLongestCommonSliceLength(nums1, nums2, i, 0, length), res)
 	}
 	for i := 0; i < len(nums2); i++ {
-		length := min.Int(len(nums2)-i, len(nums1))
-		res = max.Int(getLongestCommonSliceLength(nums1, nums2, 0, i, length), res)
+		length := arrayUtil.MinInt(len(nums2)-i, len(nums1))
+		res = arrayUtil.MaxInt(getLongestCommonSliceLength(nums1, nums2, 0, i, length), res)
 	}
 	return res
 }
@@ -49,11 +48,11 @@ func getLongestCommonSliceLength(nums1, nums2 []int, addr1, addr2, length int) i
 		if nums1[addr1+i] == nums2[addr2+i] {
 			count += 1
 		} else {
-			res = max.Int(res, count)
+			res = arrayUtil.MaxInt(res, count)
 			count = 0
 		}
 	}
-	res = max.Int(res, count)
+	res = arrayUtil.MaxInt(res, count)
 	return res
 }
 

@@ -1,6 +1,6 @@
 package Array
 
-import arrayUtil "AlgorithmGolang/Utils/array"
+import arrayUtil "AlgorithmGolang/libs/arrayUtil"
 
 // * 给定两个数组nums1和nums2 ，返回 它们的交集。输出结果中的每个元素一定是 唯一 的。我们可以 不考虑输出结果的顺序 。
 

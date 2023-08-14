@@ -33,7 +33,7 @@ func TestBinarySearch(t *testing.T) {
 			want: -1,
 		},
 		{
-			name: "single element array test",
+			name: "single element arrayUtil test",
 			args: args{
 				arr: []int{1},
 				n:   1,

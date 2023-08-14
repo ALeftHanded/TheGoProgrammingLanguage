@@ -6,7 +6,7 @@ import (
 
 	"gorm.io/gorm"
 
-	"AlgorithmGolang/Utils/random"
+	"AlgorithmGolang/libs/random"
 )
 
 func genRandomUserData(nameLen int) User {

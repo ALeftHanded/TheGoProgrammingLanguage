@@ -3,7 +3,7 @@ package script
 import (
 	"testing"
 
-	"AlgorithmGolang/Utils/measureUtil"
+	"AlgorithmGolang/libs/measureUtil"
 )
 
 func TestInsertRandomUserDataSpeed(t *testing.T) {

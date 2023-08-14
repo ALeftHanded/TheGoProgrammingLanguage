@@ -3,7 +3,7 @@ package graph
 import (
 	"testing"
 
-	"AlgorithmGolang/Utils/measureUtil"
+	"AlgorithmGolang/libs/measureUtil"
 )
 
 func TestNumberOfDistinctIslands2(t *testing.T) {
