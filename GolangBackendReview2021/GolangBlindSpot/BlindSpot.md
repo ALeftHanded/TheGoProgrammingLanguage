@@ -151,3 +151,13 @@ func (d *decodeState) unmarshal(v interface{}) error {
 
 #### 10. json marshal tips
 - if a pointer field is not nil, the value it points to will be encoded in the JSON. When unmarshaling, if a pointer field has a value in the JSON, it will be decoded and a new pointer will be created pointing to the value.
+
+#### 11. err handling
+
+> https://sharegpt.com/c/TvNrGiR
+
+the code snippet `errors.Is(err, errors.New(define.NotEnoughDataError))` will not work as expected because you're comparing the error err with a new error instance every time. The errors.New function creates a new error object, and this new object won't be equal to the original error object, even if the error string is the same.
+
+#### 12. map 遍历
+
+map for key遍历是<span style="color:red">无序</span>的，两次遍历可能产生不相同的结果。
