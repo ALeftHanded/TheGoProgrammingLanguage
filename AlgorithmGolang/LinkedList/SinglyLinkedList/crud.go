@@ -181,3 +181,19 @@ func (sll *SinglyLinkedList) PopAtEnd() interface{} {
 	head.Next = nil
 	return res
 }
+
+// DeepCopyList new a ListNode and copy the val into it
+func (ln *ListNode) DeepCopyList() *ListNode {
+	if ln == nil {
+		return nil
+	}
+	head := ln
+	tmp := &ListNode{}
+	current := tmp
+	for head != nil {
+		current.Next = &ListNode{Val: head.Val}
+		current = current.Next
+		head = head.Next
+	}
+	return tmp.Next
+}
