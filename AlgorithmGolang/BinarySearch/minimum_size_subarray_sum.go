@@ -32,7 +32,7 @@ func MinSubArrayLen1stAC(target int, nums []int) int {
 	}
 	// phase 2
 	if res > 0 {
-		for true {
+		for {
 			for sum >= target {
 				sum -= nums[left]
 				left++

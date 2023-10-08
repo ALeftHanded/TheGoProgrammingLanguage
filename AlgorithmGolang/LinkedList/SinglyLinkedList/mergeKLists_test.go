@@ -24,9 +24,9 @@ func TestMergeKLists(t *testing.T) {
 
 	// gen 5 random long *ListNode
 	const (
-		k         = 2000
-		minLength = 30000
-		maxLength = 30000
+		k         = 100000
+		minLength = 2
+		maxLength = 2
 		minNum    = -100000
 		maxNum    = 100000
 	)
@@ -95,6 +95,7 @@ func TestMergeKLists(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if tt.name == "time cost test" {
+				// ? why heap is slower than twotwo merge
 				measureUtil.ExecutionTime(MergeKLists, tmp)
 				tmp = newCopy(tt.args.lists)
 				measureUtil.ExecutionTime(MergeKListsWithMinHeap, tmp)
