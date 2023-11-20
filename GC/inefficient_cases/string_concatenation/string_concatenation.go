@@ -5,7 +5,8 @@ import (
 	"strings"
 )
 
-func ConcatenateStrings(strs []string) string {
+// ConcatenateStringsWithPlus concatenates strings with plus operator.
+func ConcatenateStringsWithPlus(strs []string) string {
 	result := ""
 	for _, str := range strs {
 		result += str
@@ -13,6 +14,7 @@ func ConcatenateStrings(strs []string) string {
 	return result
 }
 
+// ConcatenateStringsWithBuilder concatenates strings with strings.Builder.
 func ConcatenateStringsWithBuilder(strs []string) string {
 	var builder strings.Builder
 	for _, str := range strs {
@@ -21,14 +23,18 @@ func ConcatenateStringsWithBuilder(strs []string) string {
 	return builder.String()
 }
 
+// ConcatenateStringsWithJoin concatenates strings with strings.Join.
 func ConcatenateStringsWithJoin(strs []string) string {
 	return strings.Join(strs, "")
 }
 
-func ConcatenateStringsWithSprintf() string {
-	return fmt.Sprintf("%s%s%s%s%s%s%s%s%s%s", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+// ConcatenateStringsWithSprintf concatenates strings with fmt.Sprintf.
+func ConcatenateStringsWithSprintf(iStrs []interface{}) string {
+	formatString := strings.Repeat("%s", len(iStrs))
+	return fmt.Sprintf(formatString, iStrs...)
 }
 
+// ConcatenateStringsWithBuilderAndGrow concatenates strings with strings.Builder and builder grow.
 func ConcatenateStringsWithBuilderAndGrow(strs []string) string {
 	var builder strings.Builder
 	totalLength := 0

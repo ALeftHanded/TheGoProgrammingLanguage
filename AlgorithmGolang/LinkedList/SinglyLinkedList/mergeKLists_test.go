@@ -38,7 +38,7 @@ func TestMergeKLists(t *testing.T) {
 		if baseArr == nil {
 			tmpListNode = nil
 		} else {
-			tmpListNode = ArrayToSinglyLinkedList(arrayUtil.ConvertIntToInterface(baseArr)).Head
+			tmpListNode = ArrayToSinglyLinkedList(arrayUtil.ConvertSliceToInterface(baseArr)).Head
 		}
 		randomListNodes = append(randomListNodes, tmpListNode)
 	}
